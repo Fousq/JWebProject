@@ -1,0 +1,5 @@
+kz\zhanbolat\database\dao\AbstractDao.class
+kz\zhanbolat\database\pool\ProxyConnection.class
+kz\zhanbolat\database\dao\UserDao.class
+kz\zhanbolat\database\pool\ConnectionPool.class
+kz\zhanbolat\database\connection\MySQLConnection.class

@@ -8,6 +8,7 @@
   </parent>
 
   <artifactId>application-layer</artifactId>
+  <packaging>jar</packaging>
 
   <name>application-layer</name>
   <!-- FIXME change it to the project's website -->
@@ -25,6 +26,16 @@
       <artifactId>junit</artifactId>
       <version>4.11</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>kz.zhanbolat</groupId>
+      <artifactId>database</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>kz.zhanbolat</groupId>
+      <artifactId>domain-layer</artifactId>
+      <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>
 
