@@ -26,6 +26,12 @@ public class UserServiceTest {
 	}
 	
 	@Test
+	public void newUserShouldBeRegistered() {
+		boolean registered = service.registerNewUser("test2", "test2");
+		assertFalse(registered);
+	}
+	
+	@Test
 	public void UserShouldNotBeExisted() {
 		boolean isExisted = service.isExisted("log", "password");
 		assertFalse(isExisted);

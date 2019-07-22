@@ -8,20 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kz.zhanbolat.web.presintation.action.Action;
-import kz.zhanbolat.web.presintation.action.ActionFactory;
-
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class ErrorController
  */
-@WebServlet(urlPatterns="/login")
-public class LoginController extends HttpServlet {
+@WebServlet(urlPatterns="/error")
+public class ErrorController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public ErrorController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +28,7 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("views/login.jsp").include(request, response);
+		request.getRequestDispatcher("views/error.jsp").include(request, response);
 	}
 
 	/**
@@ -39,13 +36,7 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processRequest(request, response);
-	}
-
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Action action = ActionFactory.defineAction(request);
-		String page = action.performe(request);
-		response.sendRedirect(request.getContextPath() + page);
+		doGet(request, response);
 	}
 	
 }

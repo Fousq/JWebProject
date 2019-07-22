@@ -14,8 +14,7 @@ import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
 public class UserService {
 	private static Logger logger = LogManager.getLogger(UserService.class);
 	private Connection connection;
-	@SuppressWarnings("rawtypes")
-	private AbstractDao userDao;
+	private AbstractDao<Long, User> userDao;
 	
 	public UserService() {
 		userDao = new UserDao();
@@ -39,4 +38,20 @@ public class UserService {
 			}
 		}
 	}
+	
+	public boolean registerNewUser(String username, String password) {
+		if (isExisted(username, password)) {
+			logger.info("User with such login or password existed.");
+			return false;
+		}
+		User user = User.newUser()
+						.setUsername(username)
+						.setPassword(password)
+						.build();
+		connection = ConnectionPool.INSTANCE.getConnection();
+		userDao.setConnection(connection);
+		userDao.create(user);
+		return true;
+	}
+	
 }

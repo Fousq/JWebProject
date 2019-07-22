@@ -1,5 +1,6 @@
 package kz.zhanbolat.web;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
@@ -32,7 +33,17 @@ public class UserDaoTest {
 	public void findAllShoulReturnEveryUser() {
 		List<User> users = userDao.findAll();
 		users.forEach(user -> logger.debug(user));
-		assertTrue(users.size() == 1);
+		assertTrue(users.size() != 0);
+	}
+	
+	@Test
+	public void createNewUser() {
+		User user = User.newUser()
+						.setUsername("test")
+						.setPassword("test")
+						.build();
+		boolean created = userDao.create(user);
+		assertFalse(created);
 	}
 	
 	@After

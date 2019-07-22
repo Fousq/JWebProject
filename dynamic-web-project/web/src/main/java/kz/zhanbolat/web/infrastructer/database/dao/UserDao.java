@@ -19,6 +19,8 @@ public class UserDao extends AbstractDao<Long, User> {
 	private static final String SELECT_USER_BY_USERNAME_AND_PASSWORD =
 			"SELECT id, username, password FROM users WHERE USERNAME = ?"
 			+ " AND PASSWORD = ?";
+	private static final String CREATE_NEW_USER = 
+			"INSERT INTO users(username, password) VALUES (?, ?)";
 	
 	@Override
 	public List<User> findAll() {
@@ -27,22 +29,31 @@ public class UserDao extends AbstractDao<Long, User> {
 			Statement state = connection.createStatement();
 			ResultSet result = state.executeQuery(SELECT_ALL_USER);
 			while(result.next()) {
-				User user = new User();
-				user.setId(result.getLong(1));
-				user.setUsername(result.getString(2));
-				user.setPassword(result.getString(3));
+				User user = User.newUser()
+							.setId(result.getLong(1))
+							.setUsername(result.getString(2))
+							.setPassword(result.getString(3))
+							.build();
 				users.add(user);
 			}
 		} catch (SQLException e) {
-			logger.error("Error in excuting the query.", e);
+			logger.error("Error on finding the users.", e);
 		}
 		return users;
 	}
 
 	@Override
-	public boolean create(User entity) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean create(User user) {
+		int i = 0;
+		try {
+			PreparedStatement preState = connection.prepareStatement(CREATE_NEW_USER);
+			preState.setString(1, user.getUsername());
+			preState.setString(2, user.getPassword());
+			i = preState.executeUpdate();
+		} catch (SQLException e) {
+			logger.error("Error on creation new user.", e);
+		}
+		return i == 1;
 	}
 
 	@Override
@@ -71,12 +82,14 @@ public class UserDao extends AbstractDao<Long, User> {
 			preState.setString(1, username);
 			preState.setString(2, password);
 			ResultSet result = preState.executeQuery();
-			result.next();
-			user = new User(result.getLong(1),
-							result.getString(2),
-							result.getString(3));
+			user = (result.next()) ? User.newUser().setId(result.getLong(1))
+									 .setUsername(result.getString(2))
+									 .setPassword(result.getString(3))
+									 .build()
+									: null;
 		} catch (SQLException e) {
-			logger.error("Error in excuting the query.", e);
+			logger.error("Error on finding the user by username and password.",
+						 e);
 		}
 		return user;
 	}

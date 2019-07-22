@@ -8,7 +8,7 @@ public class LogoutAction implements Action {
 
 	@Override
 	public String performe(HttpServletRequest req) {
-		String page = "index.jsp";
+		String page = "/";
 		req.getSession().invalidate();
 		return page;
 	}

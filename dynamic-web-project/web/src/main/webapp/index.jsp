@@ -9,11 +9,6 @@
 </head>
 <body>
 	<c:out value="HEllO" />
-	<form action="controller" method="post">
-		<input type="hidden" name="action" value="login" />
-		<input type="text" name="login" required="required" />
-		<input type="password" name="password" required="required" />
-		<input type="submit" value="LOG IN" />
-	</form>
+	<a href="login">Login</a>
 </body>
 </html>

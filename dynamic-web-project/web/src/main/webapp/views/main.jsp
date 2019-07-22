@@ -8,6 +8,6 @@
 </head>
 <body>
 	hi, ${username}
-	<a href="controller?action=logout">Log out</a>
+	<a href="main?action=logout">Log out</a>
 </body>
 </html>

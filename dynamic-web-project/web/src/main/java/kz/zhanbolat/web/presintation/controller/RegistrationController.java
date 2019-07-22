@@ -12,16 +12,16 @@ import kz.zhanbolat.web.presintation.action.Action;
 import kz.zhanbolat.web.presintation.action.ActionFactory;
 
 /**
- * Servlet implementation class LoginController
+ * Servlet implementation class RegistrationController
  */
-@WebServlet(urlPatterns="/login")
-public class LoginController extends HttpServlet {
+@WebServlet(urlPatterns="/registration")
+public class RegistrationController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginController() {
+    public RegistrationController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +31,7 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("views/login.jsp").include(request, response);
+		request.getRequestDispatcher("views/registration.jsp").include(request, response);
 	}
 
 	/**
@@ -41,8 +41,8 @@ public class LoginController extends HttpServlet {
 		// TODO Auto-generated method stub
 		processRequest(request, response);
 	}
-
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	
+	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		Action action = ActionFactory.defineAction(request);
 		String page = action.performe(request);
 		response.sendRedirect(request.getContextPath() + page);

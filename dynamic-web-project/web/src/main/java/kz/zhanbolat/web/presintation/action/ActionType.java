@@ -2,9 +2,12 @@ package kz.zhanbolat.web.presintation.action;
 
 import kz.zhanbolat.web.presintation.action.impl.LoginAction;
 import kz.zhanbolat.web.presintation.action.impl.LogoutAction;
+import kz.zhanbolat.web.presintation.action.impl.RegistrationAction;
 
 public enum ActionType {
-	LOGIN(new LoginAction()), LOGOUT(new LogoutAction());
+	LOGIN(new LoginAction()),
+	LOGOUT(new LogoutAction()),
+	REGISTR(new RegistrationAction());
 	
 	private Action action;
 	

@@ -7,13 +7,44 @@
 	id="WebApp_ID" version="3.0">
 	<servlet>
 		<servlet-name>LoginController</servlet-name>
-		<display-name>LoginController</display-name>
-		<description></description>
 		<servlet-class>kz.zhanbolat.web.presintation.controller.LoginController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>MainController</display-name>
+		<servlet-name>MainController</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.MainController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ErrorController</display-name>
+		<servlet-name>ErrorController</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.ErrorController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>RegistrationController</display-name>
+		<servlet-name>RegistrationController</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.RegistrationController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MainController</servlet-name>
+		<url-pattern>/MainController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ErrorController</servlet-name>
+		<url-pattern>/ErrorController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>RegistrationController</servlet-name>
+		<url-pattern>/RegistrationController</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>
