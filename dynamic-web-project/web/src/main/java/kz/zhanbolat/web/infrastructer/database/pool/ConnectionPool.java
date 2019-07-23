@@ -22,9 +22,7 @@ public enum ConnectionPool {
 	
 	private ConnectionPool() {
 		MySQLConnection connection =
-				new MySQLConnection("jdbc:mysql://localhost:3306/testschema",
-									"root",
-									"123456fifa");
+				new MySQLConnection("jdbc:mysql://localhost:3306/testschema");
 		freeConnections = new LinkedBlockingQueue<>(DEFAULT_POOL_SIZE);
 		usedConnections = new LinkedBlockingQueue<>();
 		for (int i = 0; i < DEFAULT_POOL_SIZE; i++) {

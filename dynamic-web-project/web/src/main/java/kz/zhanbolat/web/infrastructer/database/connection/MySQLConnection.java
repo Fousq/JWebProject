@@ -8,20 +8,17 @@ import java.util.Properties;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import kz.zhanbolat.web.infrastructer.config.DBConfiguration;
+
 public class MySQLConnection {
 	
 	private static Logger logger = LogManager.getLogger(MySQLConnection.class);
 	private String url;
 	private Properties prop;
 	
-	public MySQLConnection(String url, String user, String password) {
+	public MySQLConnection(String url) {
 		this.url = url;
-		prop = new Properties();
-		prop.put("useJDBCCompliantTimezoneShift", true);
-		prop.put("useLegacyDatetimeCode", false);
-		prop.put("serverTimezone", "UTC");
-		prop.put("user", user);
-		prop.put("password", password);
+		prop = DBConfiguration.INSTANCE.getPropeties();
 	}
 	
 	public Connection newConnection() {

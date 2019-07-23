@@ -1,6 +1,5 @@
 package kz.zhanbolat.web;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
@@ -43,7 +42,7 @@ public class UserDaoTest {
 						.setPassword("test")
 						.build();
 		boolean created = userDao.create(user);
-		assertFalse(created);
+		assertTrue(created);
 	}
 	
 	@After
