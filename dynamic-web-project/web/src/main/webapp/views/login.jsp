@@ -5,7 +5,6 @@
 <%@ taglib prefix = "fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <c:set var="language" value="${not empty sessionScope.lang ? sessionScope.lang : fn:substring(pageContext.request.locale, 0, 2)}" scope="session"/>
 <fmt:setLocale value="${language}"/>
-<fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
@@ -29,10 +28,10 @@
 		<input type="password" name="password" id="password" required />
 		<label for="togglePassword"><fmt:message key="label.context.togglePassword" /></label>
 		<input type="checkbox" id="togglePassword" />
-		<fmt:message key="label.context.loginSubmit" var="loginSubmit"/>
+		<fmt:message key="label.text.login" var="loginSubmit"/>
 		<input type="submit" value="${loginSubmit}" />
 	</form>
-	<a href="registration">Registration</a>
+	<a href="registration"><fmt:message key="label.text.registration"/></a>
 	<script type="text/javascript">
 		const showOrHidePassword = () => {
 			const password = document.getElementById('password');
