@@ -50,8 +50,20 @@ public class UserService {
 						.build();
 		connection = ConnectionPool.INSTANCE.getConnection();
 		userDao.setConnection(connection);
-		userDao.create(user);
-		return true;
+		try {
+			userDao.create(user);
+			return true;
+		} finally {
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				logger.error("Error in closing the connection.", e);
+			}
+		}
+	}
+	
+	public boolean editUser() {
+		return false;
 	}
 	
 }

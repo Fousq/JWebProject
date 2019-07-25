@@ -30,6 +30,34 @@
 		<servlet-name>RegistrationController</servlet-name>
 		<servlet-class>kz.zhanbolat.web.presintation.controller.RegistrationController</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>CatalogController</display-name>
+		<servlet-name>CatalogController</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.CatalogController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ProfileController</display-name>
+		<servlet-name>ProfileController</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.ProfileController</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>AdvertConroller</display-name>
+		<servlet-name>AdvertConroller</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.AdvertConroller</servlet-class>
+	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>EditController</display-name>
+		<servlet-name>EditController</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.EditController</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
@@ -45,6 +73,22 @@
 	<servlet-mapping>
 		<servlet-name>RegistrationController</servlet-name>
 		<url-pattern>/RegistrationController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>CatalogController</servlet-name>
+		<url-pattern>/CatalogController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ProfileController</servlet-name>
+		<url-pattern>/ProfileController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdvertConroller</servlet-name>
+		<url-pattern>/AdvertConroller</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>EditController</servlet-name>
+		<url-pattern>/EditController</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>

@@ -18,7 +18,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="module" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>
@@ -32,9 +32,9 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v9.0"/>
-	<classpathentry kind="lib" path="C:/Users/Жанболат/Documents/GitRep/JWebProject/dynamic-web-project/web/src/main/webapp/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Жанболат/Documents/GitRep/JWebProject/dynamic-web-project/web/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Жанболат/Documents/GitRep/JWebProject/dynamic-web-project/web/src/main/webapp/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Жанболат/Documents/GitRep/JWebProject/dynamic-web-project/web/src/main/webapp/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fous3/Documents/GitRep/JWebProject/dynamic-web-project/web/src/main/webapp/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fous3/Documents/GitRep/JWebProject/dynamic-web-project/web/src/main/webapp/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fous3/Documents/GitRep/JWebProject/dynamic-web-project/web/src/main/webapp/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar"/>
+	<classpathentry kind="lib" path="C:/Users/fous3/Documents/GitRep/JWebProject/dynamic-web-project/web/src/main/webapp/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

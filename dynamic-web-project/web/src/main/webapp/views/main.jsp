@@ -8,13 +8,15 @@
 <fmt:setBundle basename="messages"/>
 
 <!DOCTYPE html>
-<html>
-<head lang="${language}">
-<meta>
+<html lang="${language}">
+<head>
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
 	hi, ${username}
 	<a href="main?action=logout"><fmt:message key="label.text.logout" /></a>
+	<a href="catalog">Catalog</a>
+	<a href="profile">Profile</a>
 </body>
 </html>

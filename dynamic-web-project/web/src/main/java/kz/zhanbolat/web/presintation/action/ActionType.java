@@ -1,5 +1,7 @@
 package kz.zhanbolat.web.presintation.action;
 
+import kz.zhanbolat.web.presintation.action.impl.CreateItemAction;
+import kz.zhanbolat.web.presintation.action.impl.EditAction;
 import kz.zhanbolat.web.presintation.action.impl.LoginAction;
 import kz.zhanbolat.web.presintation.action.impl.LogoutAction;
 import kz.zhanbolat.web.presintation.action.impl.RegistrationAction;
@@ -7,7 +9,9 @@ import kz.zhanbolat.web.presintation.action.impl.RegistrationAction;
 public enum ActionType {
 	LOGIN(new LoginAction()),
 	LOGOUT(new LogoutAction()),
-	REGISTR(new RegistrationAction());
+	REGISTR(new RegistrationAction()),
+	CREATEITEM(new CreateItemAction()),
+	EDIT(new EditAction());
 	
 	private Action action;
 	

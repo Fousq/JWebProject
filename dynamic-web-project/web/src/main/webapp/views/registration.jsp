@@ -10,7 +10,7 @@
 <!DOCTYPE html>
 <html lang="${language}">
 <head>
-<meta>
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>

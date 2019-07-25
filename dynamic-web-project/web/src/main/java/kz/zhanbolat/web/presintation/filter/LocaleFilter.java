@@ -16,8 +16,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @WebFilter(urlPatterns="/*")
-public class SessionLocaleFilter implements Filter {
-	private static Logger logger = LogManager.getLogger(SessionLocaleFilter.class);
+public class LocaleFilter implements Filter {
+	private static Logger logger = LogManager.getLogger(LocaleFilter.class);
 	
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, 

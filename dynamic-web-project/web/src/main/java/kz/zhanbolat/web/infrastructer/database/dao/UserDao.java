@@ -21,6 +21,9 @@ public class UserDao extends AbstractDao<Long, User> {
 			+ " AND PASSWORD = ?";
 	private static final String CREATE_NEW_USER = 
 			"INSERT INTO users(username, password) VALUES (?, ?)";
+	private static final String UPDATE_USER = 
+			"UPDATE users SET telephone = ?, country = ?, birthday = ?"
+			+ " WHERE username = ?;";
 	
 	@Override
 	public List<User> findAll() {
@@ -63,9 +66,20 @@ public class UserDao extends AbstractDao<Long, User> {
 	}
 
 	@Override
-	public boolean update(User entity) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean update(User user) {
+		try {
+			PreparedStatement preState = connection.prepareStatement(UPDATE_USER);
+			preState.setString(1, user.getTelephoneNumber());
+			preState.setString(2, user.getCountry());
+			preState.setDate(3, user.getBirthday());
+			preState.setString(4, user.getUsername());
+			preState.executeUpdate();
+		} catch (SQLException e) {
+			logger.error("ERROR on updating the user.", e);
+			return false;
+		}
+		
+		return true;
 	}
 
 	@Override
