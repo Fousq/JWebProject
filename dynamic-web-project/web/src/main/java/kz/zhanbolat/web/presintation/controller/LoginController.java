@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kz.zhanbolat.web.presintation.action.Action;
-import kz.zhanbolat.web.presintation.action.ActionFactory;
+import kz.zhanbolat.web.application.service.UserService;
 
 /**
  * Servlet implementation class LoginController
@@ -17,7 +16,8 @@ import kz.zhanbolat.web.presintation.action.ActionFactory;
 @WebServlet(urlPatterns="/login")
 public class LoginController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+    public static final String LOGIN_PARAM_NAME = "login";
+    public static final String PASSWORD_PARAM_NAME = "password";
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -39,12 +39,22 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processRequest(request, response);
+		processPostRequest(request, response);
 	}
 
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		Action action = ActionFactory.defineAction(request);
-		String page = action.performe(request);
+	private void processPostRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UserService service = new UserService();
+		String username = request.getParameter(LOGIN_PARAM_NAME);
+		String password = request.getParameter(PASSWORD_PARAM_NAME);
+		String page;
+		if (service.isExisted(username, password)) {
+			request.getSession().setAttribute("username", username);
+			request.getSession().setAttribute("errorMessage", null);
+			page = "/";
+		} else {
+			page = "/login";
+			request.getSession().setAttribute("errorMessage", "label.context.loginError");
+		}
 		response.sendRedirect(request.getContextPath() + page);
 	}
 	

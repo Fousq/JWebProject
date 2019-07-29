@@ -8,8 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kz.zhanbolat.web.presintation.action.Action;
-import kz.zhanbolat.web.presintation.action.ActionFactory;
+import kz.zhanbolat.web.application.service.UserService;
 
 /**
  * Servlet implementation class RegistrationController
@@ -39,12 +38,22 @@ public class RegistrationController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processRequest(request, response);
+		processPostRequest(request, response);
 	}
 	
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		Action action = ActionFactory.defineAction(request);
-		String page = action.performe(request);
+	private void processPostRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		UserService service = new UserService();
+		String username = request.getParameter(LoginController.LOGIN_PARAM_NAME);
+		String password = request.getParameter(LoginController.PASSWORD_PARAM_NAME);
+		boolean created = service.registerNewUser(username, password);
+		String page = null;
+		if (created) {
+			request.getSession().setAttribute("errorMessage", null);
+			page = "/login";
+		} else {
+			page = "/registration";
+			request.getSession().setAttribute("errorMessage", "label.context.registrationError");
+		}
 		response.sendRedirect(request.getContextPath() + page);
 	}
 	

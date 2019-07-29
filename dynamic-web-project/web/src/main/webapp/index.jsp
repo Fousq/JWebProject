@@ -2,8 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix = "fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="language" value="${not empty sessionScope.lang ? sessionScope.lang : fn:substring(pageContext.request.locale, 0, 2)}" scope="session"/>
+<c:set var="language" value="${sessionScope.lang}" scope="session"/>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="messages"/>
 
@@ -16,9 +15,17 @@
 <body>
 	<fmt:message key="label.welcome" />
 	<ul>
-		<li><a href="?sessionLocale=en"><fmt:message key="label.lang.en" /></a></li>
-		<li><a href="?sessionLocale=ru"><fmt:message key="label.lang.ru" /></a></li>
+		<li><a href="?locale=en"><fmt:message key="label.lang.en" /></a></li>
+		<li><a href="?locale=ru"><fmt:message key="label.lang.ru" /></a></li>
 	</ul>
-	<a href="login"><fmt:message key="label.text.login" /></a>
+	<c:choose>
+		<c:when test="${not empty sessionScope.username}">
+			<a href="profile"><fmt:message key="label.text.profile" /></a>
+			<a href="logout"><fmt:message key="label.text.logout"/></a>
+		</c:when>
+		<c:otherwise>
+			<a href="login"><fmt:message key="label.text.login" /></a>
+		</c:otherwise>
+	</c:choose>
 </body>
 </html>

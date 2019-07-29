@@ -3,7 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix = "fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="language" value="${not empty sessionScope.lang ? sessionScope.lang : fn:substring(pageContext.request.locale, 0, 2)}" scope="session"/>
+<c:set var="language" value="${sessionScope.lang}" scope="session"/>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="messages"/>
 
@@ -16,8 +16,8 @@
 <body>
 	<c:out value="${language}" />
 	<ul>
-		<li><a href="${pageContext.request.requestURI}?sessionLocale=en"><fmt:message key="label.lang.en" /></a></li>
-		<li><a href="${pageContext.request.requestURI}?sessionLocale=ru"><fmt:message key="label.lang.ru" /></a></li>
+		<li><a href="${pageContext.request.requestURI}?locale=en"><fmt:message key="label.lang.en" /></a></li>
+		<li><a href="${pageContext.request.requestURI}?locale=ru"><fmt:message key="label.lang.ru" /></a></li>
 	</ul>
 	<br/>
 	<form action="login" method="post">
@@ -31,6 +31,9 @@
 		<fmt:message key="label.text.login" var="loginSubmit"/>
 		<input type="submit" value="${loginSubmit}" />
 	</form>
+	<c:if test="${not empty errorMessage}">
+		<fmt:message key="${errorMessage}"/>
+	</c:if>
 	<a href="registration"><fmt:message key="label.text.registration"/></a>
 	<script type="text/javascript">
 		const showOrHidePassword = () => {

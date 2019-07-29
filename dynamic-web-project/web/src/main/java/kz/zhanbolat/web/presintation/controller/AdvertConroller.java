@@ -10,9 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kz.zhanbolat.web.application.service.CategoryService;
+import kz.zhanbolat.web.application.service.ItemService;
 import kz.zhanbolat.web.domain.entity.Category;
-import kz.zhanbolat.web.presintation.action.Action;
-import kz.zhanbolat.web.presintation.action.ActionFactory;
 
 /**
  * Servlet implementation class AdvertConroller
@@ -20,7 +19,11 @@ import kz.zhanbolat.web.presintation.action.ActionFactory;
 @WebServlet(urlPatterns="/advert")
 public class AdvertConroller extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+	private static final String NAME_PARAM_NAME = "name";
+	private static final String DESCRIPTION_PARAM_NAME = "description";
+	private static final String PRICE_PARAM_NAME = "price";
+	private static final String CATEGORY_ID_PARAM_NAME = "category";
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -53,9 +56,13 @@ public class AdvertConroller extends HttpServlet {
 	}
 	
 	private void processPostRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		Action action = ActionFactory.defineAction(request);
-		String page = action.performe(request);
-		response.sendRedirect(request.getContextPath() + page);
+		ItemService service = new ItemService();
+		String name = request.getParameter(NAME_PARAM_NAME);
+		String description = request.getParameter(DESCRIPTION_PARAM_NAME);
+		int price = Integer.parseInt(request.getParameter(PRICE_PARAM_NAME));
+		int categoryId = Integer.parseInt(request.getParameter(CATEGORY_ID_PARAM_NAME));
+		service.createNewItem(name, description, price, categoryId);
+		response.sendRedirect(request.getContextPath() + "/profile");
 	}
 	
 }

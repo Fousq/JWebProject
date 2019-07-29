@@ -8,9 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kz.zhanbolat.web.presintation.action.Action;
-import kz.zhanbolat.web.presintation.action.ActionFactory;
-
 /**
  * Servlet implementation class EditController
  */
@@ -39,13 +36,11 @@ public class EditController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processRequest(request, response);
+		processPostRequest(request, response);
 	}
 	
-	private void processRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
-		Action action = ActionFactory.defineAction(request);
-		String page = action.performe(request);
-		response.sendRedirect(request.getContextPath() + page);
+	private void processPostRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
 	}
 	
 }

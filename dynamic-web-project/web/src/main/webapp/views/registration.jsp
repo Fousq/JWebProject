@@ -3,7 +3,7 @@
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix = "fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix = "fn" uri="http://java.sun.com/jsp/jstl/functions" %>
-<c:set var="language" value="${not empty sessionScope.lang ? sessionScope.lang : fn:substring(pageContext.request.locale, 0, 2)}" scope="session"/>
+<c:set var="language" value="${sessionScope.lang}" scope="session"/>
 <fmt:setLocale value="${language}"/>
 <fmt:setBundle basename="messages"/>
 

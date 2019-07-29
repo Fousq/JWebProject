@@ -1,7 +1,6 @@
 package kz.zhanbolat.web.presintation.filter;
 
 import java.io.IOException;
-import java.util.Locale;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -11,6 +10,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -27,11 +27,37 @@ public class LocaleFilter implements Filter {
 		HttpServletResponse resp = (HttpServletResponse) response;
 		req.setCharacterEncoding("UTF-8");
 		resp.setCharacterEncoding("UTF-8");
-		logger.debug(req.getParameter("sessionLocale"));
-		if (req.getParameter("sessionLocale") != null) {
-			req.getSession().setAttribute("lang", req.getParameter("sessionLocale"));
+		HttpSession session = req.getSession();
+		String lang = req.getParameter("locale");
+		if (lang != null) {
+			session.setAttribute("lang", lang);
+		}
+		if (lang == null && session.getAttribute("lang") == null) {
+			String userLocale = req.getLocale().toString().substring(3);
+			try {
+				lang = SupportedLanguages.valueOf(userLocale).getCode();
+				logger.debug(lang);
+			} catch (IllegalArgumentException e) {
+				lang = "en";
+			}
+			session.setAttribute("lang", lang);
 		}
 		chain.doFilter(request, response);
+	}
+	
+	private static enum SupportedLanguages {
+		EN("en"), RU("ru");
+		
+		private String code;
+		
+		SupportedLanguages(String code) {
+			this.code = code;
+		}
+		
+		private String getCode() {
+			return code;
+		}
+		
 	}
 	
 }
