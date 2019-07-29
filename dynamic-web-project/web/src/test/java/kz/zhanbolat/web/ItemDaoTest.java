@@ -39,9 +39,4 @@ public class ItemDaoTest {
 		assertTrue(created);
 	}
 	
-	@After
-	public void finish() throws SQLException {
-		connection.close();
-	}
-	
 }

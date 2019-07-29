@@ -45,8 +45,4 @@ public class UserDaoTest {
 		assertTrue(created);
 	}
 	
-	@After
-	public void finish() throws SQLException {
-		connection.close();
-	}
 }

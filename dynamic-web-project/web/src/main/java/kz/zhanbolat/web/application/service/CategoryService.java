@@ -24,15 +24,7 @@ public class CategoryService {
 	public List<Category> obtainAllCategories() {
 		connection = ConnectionPool.INSTANCE.getConnection();
 		categoryDao.setConnection(connection);
-		try {
-			return categoryDao.findAll();
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				logger.error("Error on closing the connection", e);
-			}
-		}
+		return categoryDao.findAll();
 	}
 	
 }

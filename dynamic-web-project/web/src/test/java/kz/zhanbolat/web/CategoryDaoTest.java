@@ -35,9 +35,4 @@ public class CategoryDaoTest {
 		categories.forEach(category -> logger.debug(category));
 	}
 	
-	@After
-	public void finish() throws SQLException {
-		connection.close();
-	}
-	
 }

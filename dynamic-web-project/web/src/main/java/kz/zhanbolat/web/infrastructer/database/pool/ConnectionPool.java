@@ -9,7 +9,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import kz.zhanbolat.web.infrastructer.database.connection.MySQLConnection;
+import kz.zhanbolat.web.infrastructer.config.DBConfiguration;
+import kz.zhanbolat.web.infrastructer.database.pool.connection.ConnectionCreater;
+import kz.zhanbolat.web.infrastructer.exception.ConfigurationException;
+import kz.zhanbolat.web.infrastructer.exception.ConnectionPoolException;
 
 public enum ConnectionPool {
 	INSTANCE();
@@ -17,28 +20,36 @@ public enum ConnectionPool {
 	private Logger logger = LogManager.getLogger(ConnectionPool.class);
 	private BlockingQueue<Connection> freeConnections;
 	private BlockingQueue<Connection> usedConnections;
-	
-	private final int DEFAULT_POOL_SIZE = 24;
+	private int poolSize;
 	
 	private ConnectionPool() {
-		MySQLConnection connection =
-				new MySQLConnection("jdbc:mysql://localhost:3306/testshema");
-		freeConnections = new LinkedBlockingQueue<>(DEFAULT_POOL_SIZE);
-		usedConnections = new LinkedBlockingQueue<>();
-		for (int i = 0; i < DEFAULT_POOL_SIZE; i++) {
-			ProxyConnection proxyConnection = 
-					new ProxyConnection(connection.newConnection());
-			freeConnections.add(proxyConnection);
+		try {
+			poolSize = DBConfiguration.INSTANCE.getConnectionPoolSize();
+			freeConnections = new LinkedBlockingQueue<>(poolSize);
+			usedConnections = new LinkedBlockingQueue<>();
+			for (int i = 0; i < poolSize; i++) {
+				ProxyConnection proxyConnection = 
+						new ProxyConnection(ConnectionCreater.INSTANCE.createNewMySQLConnection());
+				freeConnections.add(proxyConnection);
+			}
+			if (freeConnections.size() != poolSize) {
+				if (freeConnections.size() == 0) {
+					throw new ExceptionInInitializerError("Pool is not created.");
+				} else {
+					logger.warn("Only " + freeConnections.size() + " was created.");
+				}
+			}
+		} catch (ConfigurationException e) {
+			logger.fatal("Pool size is not setted.", e);
+			throw new ExceptionInInitializerError("Pool is not created.");
 		}
 	}
 	
 	public Connection getConnection() {
 		Connection connection = null;
 		try {
-			if (!freeConnections.isEmpty()) {
-				connection = freeConnections.take();
-				usedConnections.add(connection);
-			}
+			connection = freeConnections.take();
+			usedConnections.offer(connection);
 		} catch (InterruptedException e) {
 			logger.error("Error on getting the free connection.", e);
 		}
@@ -55,7 +66,7 @@ public enum ConnectionPool {
 	}
 	
 	public void destroyPool() {
-		for (int i = 0; i < DEFAULT_POOL_SIZE; i++) {
+		for (int i = 0; i < poolSize; i++) {
 			try {
 				((ProxyConnection) freeConnections.take()).closeConnection();
 			} catch (SQLException | InterruptedException e) {

@@ -1,5 +1,6 @@
 package kz.zhanbolat.web.infrastructer.database.dao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +13,7 @@ import org.apache.logging.log4j.Logger;
 
 import kz.zhanbolat.web.domain.entity.User;
 
-public class UserDao extends AbstractDao<Long, User> {
+public class UserDao implements AbstractDao<Long, User> {
 	private static Logger logger = LogManager.getLogger(UserDao.class);
 	private static final String SELECT_ALL_USER = 
 			"SELECT id, username, password FROM users";
@@ -24,23 +25,44 @@ public class UserDao extends AbstractDao<Long, User> {
 	private static final String UPDATE_USER = 
 			"UPDATE users SET telephone = ?, country = ?, birthday = ?"
 			+ " WHERE username = ?;";
+	private Connection connection;
+	private Statement statement;
+	private PreparedStatement preStatement;
+	private ResultSet resultSet;
 	
+	public UserDao() {
+		super();
+	}
+	
+	public UserDao(Connection connection) {
+		super();
+		this.connection = connection;
+	}
+
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
+
 	@Override
 	public List<User> findAll() {
 		List<User> users = new ArrayList<>();
 		try {
-			Statement state = connection.createStatement();
-			ResultSet result = state.executeQuery(SELECT_ALL_USER);
-			while(result.next()) {
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(SELECT_ALL_USER);
+			while(resultSet.next()) {
 				User user = User.newUser()
-							.setId(result.getLong(1))
-							.setUsername(result.getString(2))
-							.setPassword(result.getString(3))
+							.setId(resultSet.getLong(1))
+							.setUsername(resultSet.getString(2))
+							.setPassword(resultSet.getString(3))
 							.build();
 				users.add(user);
 			}
 		} catch (SQLException e) {
 			logger.error("Error on finding the users.", e);
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(statement, logger);
+			closeConnection(connection, logger);
 		}
 		return users;
 	}
@@ -49,12 +71,15 @@ public class UserDao extends AbstractDao<Long, User> {
 	public boolean create(User user) {
 		int i = 0;
 		try {
-			PreparedStatement preState = connection.prepareStatement(CREATE_NEW_USER);
-			preState.setString(1, user.getUsername());
-			preState.setString(2, user.getPassword());
-			i = preState.executeUpdate();
+			preStatement = connection.prepareStatement(CREATE_NEW_USER);
+			preStatement.setString(1, user.getUsername());
+			preStatement.setString(2, user.getPassword());
+			i = preStatement.executeUpdate();
 		} catch (SQLException e) {
 			logger.error("Error on creation new user.", e);
+		} finally {
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
 		}
 		return i == 1;
 	}
@@ -68,15 +93,18 @@ public class UserDao extends AbstractDao<Long, User> {
 	@Override
 	public boolean update(User user) {
 		try {
-			PreparedStatement preState = connection.prepareStatement(UPDATE_USER);
-			preState.setString(1, user.getTelephoneNumber());
-			preState.setString(2, user.getCountry());
-			preState.setDate(3, user.getBirthday());
-			preState.setString(4, user.getUsername());
-			preState.executeUpdate();
+			preStatement = connection.prepareStatement(UPDATE_USER);
+			preStatement.setString(1, user.getTelephoneNumber());
+			preStatement.setString(2, user.getCountry());
+			preStatement.setDate(3, user.getBirthday());
+			preStatement.setString(4, user.getUsername());
+			preStatement.executeUpdate();
 		} catch (SQLException e) {
 			logger.error("ERROR on updating the user.", e);
 			return false;
+		} finally {
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
 		}
 		
 		return true;
@@ -91,19 +119,23 @@ public class UserDao extends AbstractDao<Long, User> {
 	public User findUserByUsernameAndPassword(String username, String password) {
 		User user = null;
 		try {
-			PreparedStatement preState 
+			preStatement 
 			= connection.prepareStatement(SELECT_USER_BY_USERNAME_AND_PASSWORD);
-			preState.setString(1, username);
-			preState.setString(2, password);
-			ResultSet result = preState.executeQuery();
-			user = (result.next()) ? User.newUser().setId(result.getLong(1))
-									 .setUsername(result.getString(2))
-									 .setPassword(result.getString(3))
+			preStatement.setString(1, username);
+			preStatement.setString(2, password);
+			resultSet = preStatement.executeQuery();
+			user = (resultSet.next()) ? User.newUser().setId(resultSet.getLong(1))
+									 .setUsername(resultSet.getString(2))
+									 .setPassword(resultSet.getString(3))
 									 .build()
 									: null;
 		} catch (SQLException e) {
 			logger.error("Error on finding the user by username and password.",
 						 e);
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
 		}
 		return user;
 	}

@@ -24,19 +24,11 @@ public class UserService {
 		connection = ConnectionPool.INSTANCE.getConnection();
 		userDao.setConnection(connection);
 		boolean isExisted = false;
-		try {
-			User user = ((UserDao) userDao).findUserByUsernameAndPassword(username, password);
-			if (user != null) {
-				isExisted = true;
-			}
-			return isExisted;
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				logger.error("Error in closing the connection.", e);
-			}
+		User user = ((UserDao) userDao).findUserByUsernameAndPassword(username, password);
+		if (user != null) {
+			isExisted = true;
 		}
+		return isExisted;
 	}
 	
 	public boolean registerNewUser(String username, String password) {
@@ -50,16 +42,8 @@ public class UserService {
 						.build();
 		connection = ConnectionPool.INSTANCE.getConnection();
 		userDao.setConnection(connection);
-		try {
-			userDao.create(user);
-			return true;
-		} finally {
-			try {
-				connection.close();
-			} catch (SQLException e) {
-				logger.error("Error in closing the connection.", e);
-			}
-		}
+		userDao.create(user);
+		return true;
 	}
 	
 	public boolean editUser() {

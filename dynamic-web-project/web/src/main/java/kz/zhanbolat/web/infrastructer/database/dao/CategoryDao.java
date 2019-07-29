@@ -1,5 +1,7 @@
 package kz.zhanbolat.web.infrastructer.database.dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,26 +13,46 @@ import org.apache.logging.log4j.Logger;
 
 import kz.zhanbolat.web.domain.entity.Category;
 
-public class CategoryDao extends AbstractDao<Integer, Category> {
+public class CategoryDao implements AbstractDao<Integer, Category> {
 	private static Logger logger = LogManager.getLogger(CategoryDao.class);
 	private static final String SELECT_ALL_CATEGORIES = 
 			"SELECT id, name FROM categories;";
+	private Connection connection;
+	private Statement statement;
+	private PreparedStatement preStatement;
+	private ResultSet resultSet;
 	
+	public CategoryDao() {
+		super();
+	}
+	
+	public CategoryDao(Connection connection) {
+		this.connection = connection;
+	}
+
+	public void setConnection(Connection connection) {
+		this.connection = connection;
+	}
+
 	@Override
 	public List<Category> findAll() {
 		List<Category> categories;
 		try {
-			Statement statement = connection.createStatement();
-			ResultSet result = statement.executeQuery(SELECT_ALL_CATEGORIES);
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(SELECT_ALL_CATEGORIES);
 			categories = new ArrayList<>();
-			while(result.next()) {
-				Category category = new Category(result.getInt(1), 
-												 result.getString(2));
+			while(resultSet.next()) {
+				Category category = new Category(resultSet.getInt(1), 
+						resultSet.getString(2));
 				categories.add(category);
 			}
 		} catch (SQLException e) {
 			logger.error("ERROR on selection all categories.", e);
 			categories = null;
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(statement, logger);
+			closeConnection(connection, logger);
 		}
 		
 		return categories;
