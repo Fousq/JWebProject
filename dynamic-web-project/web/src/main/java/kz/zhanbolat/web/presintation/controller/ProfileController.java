@@ -17,6 +17,7 @@ import kz.zhanbolat.web.domain.entity.User;
 @WebServlet(urlPatterns="/profile")
 public class ProfileController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static final String USERNAME_ATTR_NAME = "username";
 	private static final String TELEPHONE_NUMBER_DEFAUL_VALUE = "No number";
        
     /**
@@ -46,7 +47,7 @@ public class ProfileController extends HttpServlet {
 	
 	private void processGetRequest(HttpServletRequest request, HttpServletResponse response) {
 		UserService service = new UserService();
-		String username = (String) request.getSession().getAttribute("username");
+		String username = (String) request.getSession().getAttribute(USERNAME_ATTR_NAME);
 		User user = service.obtainUserByUsername(username);
 		request.setAttribute("id", user.getId());
 		if (user.getTelephoneNumber().isEmpty() || user.getTelephoneNumber() == null) {

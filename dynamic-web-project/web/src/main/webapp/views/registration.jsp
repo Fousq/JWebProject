@@ -18,6 +18,7 @@
 		<li><a href="${pageContext.request.requestURI}?locale=en"><fmt:message key="label.lang.en" /></a></li>
 		<li><a href="${pageContext.request.requestURI}?locale=ru"><fmt:message key="label.lang.ru" /></a></li>
 	</ul>
+	<br>
 	<form action="registration" method="post">
 		<input type="hidden" name="action" value="registr"/>
 		<label for="login"><fmt:message key="label.context.login" />:</label>

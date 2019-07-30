@@ -60,15 +60,22 @@ public class UserService {
 		userDao.setConnection(connection);
 		try {
 			user = ((UserDao) userDao).findUserByUsername(username);
-			logger.debug(user);
 		} catch (DaoException e) {
 			logger.error("Error in obtaining the user.", e);
 		}
 		return user;
 	}
 	
-	public boolean editUser() {
-		return false;
+	public boolean editUser(User user) {
+		connection = ConnectionPool.INSTANCE.getConnection();
+		userDao.setConnection(connection);
+		boolean isEdited = false;
+		try {
+			isEdited = userDao.update(user);
+		} catch (DaoException e) {
+			logger.error("ERROR on updating the user information.", e);
+		}
+		return isEdited;
 	}
 	
 }

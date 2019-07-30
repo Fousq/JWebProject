@@ -106,7 +106,7 @@ public class UserDao implements AbstractDao<Long, User> {
 			preStatement = connection.prepareStatement(UPDATE_USER);
 			preStatement.setString(1, user.getTelephoneNumber());
 			preStatement.setString(2, user.getCountry());
-			preStatement.setDate(3, (Date) user.getBirthday());
+			preStatement.setDate(3, new Date(user.getBirthday().getTime()));
 			preStatement.setString(4, user.getUsername());
 			preStatement.executeUpdate();
 		} catch (SQLException e) {
@@ -158,7 +158,7 @@ public class UserDao implements AbstractDao<Long, User> {
 				user = User.newUser().setId(resultSet.getLong(1))
 						.setTelephoneNumber(resultSet.getString(2))
 						.setCountry(resultSet.getString(3))
-						.setBirthday(resultSet.getDate(4))
+						.setBirthday(resultSet.getDate(4).toString())
 						.build();
 			} else {
 				user = null;
