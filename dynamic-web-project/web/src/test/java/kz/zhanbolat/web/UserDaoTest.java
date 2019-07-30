@@ -13,8 +13,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kz.zhanbolat.web.domain.entity.User;
+import kz.zhanbolat.web.domain.exception.InvalidValueException;
 import kz.zhanbolat.web.infrastructer.database.dao.UserDao;
 import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class UserDaoTest {
 	private static Logger logger = LogManager.getLogger(UserDaoTest.class);
@@ -29,14 +31,14 @@ public class UserDaoTest {
 	}
 	
 	@Test
-	public void findAllShoulReturnEveryUser() {
+	public void findAllShoulReturnEveryUser() throws DaoException {
 		List<User> users = userDao.findAll();
 		users.forEach(user -> logger.debug(user));
 		assertTrue(users.size() != 0);
 	}
 	
 	@Test
-	public void createNewUser() {
+	public void createNewUser() throws InvalidValueException, DaoException {
 		User user = User.newUser()
 						.setUsername("test")
 						.setPassword("test")

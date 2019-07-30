@@ -9,6 +9,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import kz.zhanbolat.web.application.service.UserService;
+import kz.zhanbolat.web.domain.entity.User;
+import kz.zhanbolat.web.domain.exception.InvalidValueException;
 
 public class UserServiceTest {
 	private static Logger logger = LogManager.getLogger(UserServiceTest.class);
@@ -26,8 +28,11 @@ public class UserServiceTest {
 	}
 	
 	@Test
-	public void newUserShouldBeRegistered() {
-		boolean registered = service.registerNewUser("test2", "test2");
+	public void newUserShouldBeRegistered() throws InvalidValueException {
+		User user = User.newUser().setUsername("test")
+				.setPassword("test")
+				.build();
+		boolean registered = service.registerNewUser(user);
 		assertFalse(registered);
 	}
 	

@@ -15,6 +15,7 @@ import org.junit.Test;
 import kz.zhanbolat.web.domain.entity.Category;
 import kz.zhanbolat.web.infrastructer.database.dao.CategoryDao;
 import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class CategoryDaoTest {
 	private static Logger logger = LogManager.getLogger(CategoryDaoTest.class);
@@ -29,7 +30,7 @@ public class CategoryDaoTest {
 	}
 	
 	@Test
-	public void daoShouldFindAll() {
+	public void daoShouldFindAll() throws DaoException {
 		List<Category> categories = dao.findAll();
 		assertTrue(categories.size() == 5);
 		categories.forEach(category -> logger.debug(category));

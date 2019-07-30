@@ -14,6 +14,7 @@ import org.junit.Test;
 import kz.zhanbolat.web.domain.entity.Item;
 import kz.zhanbolat.web.infrastructer.database.dao.ItemDao;
 import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class ItemDaoTest {
 	private static Logger logger = LogManager.getLogger(ItemDaoTest.class);
@@ -28,7 +29,7 @@ public class ItemDaoTest {
 	}
 	
 	@Test
-	public void itemShouldBeCreatedInDB() {
+	public void itemShouldBeCreatedInDB() throws DaoException {
 		Item item = Item.newBuilder()
 							.setName("name")
 							.setDescription("description")

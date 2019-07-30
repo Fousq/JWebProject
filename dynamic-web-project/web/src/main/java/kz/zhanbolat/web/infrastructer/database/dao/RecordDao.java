@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import kz.zhanbolat.web.domain.entity.Record;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class RecordDao implements AbstractDao<Long, Record> {
 	private static Logger logger = LogManager.getLogger(RecordDao.class);
@@ -31,31 +32,31 @@ public class RecordDao implements AbstractDao<Long, Record> {
 	}
 	
 	@Override
-	public List<Record> findAll() {
+	public List<Record> findAll() throws DaoException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean create(Record entity) {
+	public boolean create(Record entity) throws DaoException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Record read(Long id) {
+	public Record read(Long id) throws DaoException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean update(Record entity) {
+	public boolean update(Record entity) throws DaoException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(Record entity) {
+	public boolean delete(Record entity) throws DaoException {
 		// TODO Auto-generated method stub
 		return false;
 	}

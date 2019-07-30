@@ -11,6 +11,7 @@ import kz.zhanbolat.web.domain.entity.Category;
 import kz.zhanbolat.web.infrastructer.database.dao.AbstractDao;
 import kz.zhanbolat.web.infrastructer.database.dao.CategoryDao;
 import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class CategoryService {
 	private static Logger logger = LogManager.getLogger(CategoryService.class);
@@ -24,7 +25,12 @@ public class CategoryService {
 	public List<Category> obtainAllCategories() {
 		connection = ConnectionPool.INSTANCE.getConnection();
 		categoryDao.setConnection(connection);
-		return categoryDao.findAll();
+		try {
+			return categoryDao.findAll();
+		} catch (DaoException e) {
+			logger.error("Error on finding all categories.", e);
+			return null;
+		}
 	}
 	
 }

@@ -11,6 +11,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import kz.zhanbolat.web.domain.entity.Item;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class ItemDao implements AbstractDao<Long, Item> {
 	private static Logger logger = LogManager.getLogger(ItemDao.class);
@@ -34,13 +35,13 @@ public class ItemDao implements AbstractDao<Long, Item> {
 	}
 	
 	@Override
-	public List<Item> findAll() {
+	public List<Item> findAll() throws DaoException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean create(Item item) {
+	public boolean create(Item item) throws DaoException {
 		try {
 			preStatement = connection.prepareStatement(CREATE_NEW_ITEM);
 			preStatement.setString(1, item.getName());
@@ -49,8 +50,7 @@ public class ItemDao implements AbstractDao<Long, Item> {
 			preStatement.setInt(4, item.getCategoryId());
 			preStatement.executeUpdate();
 		} catch (SQLException e) {
-			logger.error("ERROR on creating new item.", e);
-			return false;
+			throw new DaoException(e.getMessage(), e.getCause());
 		} finally {
 			closeStatement(preStatement, logger);
 			closeConnection(connection, logger);
@@ -60,19 +60,19 @@ public class ItemDao implements AbstractDao<Long, Item> {
 	}
 
 	@Override
-	public Item read(Long id) {
+	public Item read(Long id) throws DaoException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean update(Item entity) {
+	public boolean update(Item entity) throws DaoException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(Item entity) {
+	public boolean delete(Item entity) throws DaoException {
 		// TODO Auto-generated method stub
 		return false;
 	}

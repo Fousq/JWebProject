@@ -12,6 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import kz.zhanbolat.web.domain.entity.Category;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class CategoryDao implements AbstractDao<Integer, Category> {
 	private static Logger logger = LogManager.getLogger(CategoryDao.class);
@@ -35,7 +36,7 @@ public class CategoryDao implements AbstractDao<Integer, Category> {
 	}
 
 	@Override
-	public List<Category> findAll() {
+	public List<Category> findAll() throws DaoException {
 		List<Category> categories;
 		try {
 			statement = connection.createStatement();
@@ -47,8 +48,7 @@ public class CategoryDao implements AbstractDao<Integer, Category> {
 				categories.add(category);
 			}
 		} catch (SQLException e) {
-			logger.error("ERROR on selection all categories.", e);
-			categories = null;
+			throw new DaoException(e.getMessage(), e.getCause());
 		} finally {
 			closeResultSet(resultSet, logger);
 			closeStatement(statement, logger);
@@ -59,25 +59,25 @@ public class CategoryDao implements AbstractDao<Integer, Category> {
 	}
 
 	@Override
-	public boolean create(Category entity) {
+	public boolean create(Category entity) throws DaoException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public Category read(Integer id) {
+	public Category read(Integer id) throws DaoException {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public boolean update(Category entity) {
+	public boolean update(Category entity) throws DaoException {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(Category entity) {
+	public boolean delete(Category entity) throws DaoException {
 		// TODO Auto-generated method stub
 		return false;
 	}

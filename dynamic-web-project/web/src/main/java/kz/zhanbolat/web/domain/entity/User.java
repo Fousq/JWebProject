@@ -1,15 +1,25 @@
 package kz.zhanbolat.web.domain.entity;
 
-import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Objects;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import kz.zhanbolat.web.domain.exception.InvalidValueException;
+import kz.zhanbolat.web.domain.validator.UserValidator;
+
 public class User implements Entity {
+	private static Logger logger = LogManager.getLogger(User.class);
 	private Long id;
 	private String username;
 	private String password;
 	private String telephoneNumber;
 	private String country;
 	private Date birthday;
+	private SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 	
 	private User() {
 		
@@ -39,6 +49,12 @@ public class User implements Entity {
 		return birthday;
 	}
 	
+	public String getFormatedBirthday() {
+		logger.debug(birthday);
+		logger.debug(format.format(birthday));
+		return format.format(birthday);
+	}
+	
 	public static Builder newUser() {
 		return new User().new Builder();
 	}
@@ -61,13 +77,21 @@ public class User implements Entity {
 			return this;
 		}
 		
-		public Builder setPassword(String password) {
-			User.this.password = password;
+		public Builder setPassword(String password) throws InvalidValueException {
+			if (UserValidator.validatePassword(password)) {
+				User.this.password = password;
+			} else {
+				throw new InvalidValueException("Password is not valid.");
+			}
 			
 			return this;
 		}
 		
-		public Builder setTelephoneNumber(String telephoneNumber) {
+		public Builder setTelephoneNumber(String telephoneNumber) throws InvalidValueException {
+			if (!(UserValidator.validateTelephoneNumber(telephoneNumber) 
+					|| telephoneNumber.isEmpty())) {
+				throw new InvalidValueException("Telephone number is not valid.");
+			}
 			User.this.telephoneNumber = telephoneNumber;
 			
 			return this;
@@ -81,6 +105,19 @@ public class User implements Entity {
 		
 		public Builder setBirthday(Date birthday) {
 			User.this.birthday = birthday;
+			
+			return this;
+		}
+		
+		public Builder setBirthday(String birthday) {
+			try {
+				User.this.birthday = format.parse(birthday);
+			} catch (ParseException e) {
+				logger.error("Cannot parse the string to a birthday "
+						+ "format(day-month-year). Birthday will be setted "
+						+ "to today date.", e);
+				User.this.birthday = new Date();
+			}
 			
 			return this;
 		}

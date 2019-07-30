@@ -10,6 +10,7 @@ import kz.zhanbolat.web.domain.entity.User;
 import kz.zhanbolat.web.infrastructer.database.dao.AbstractDao;
 import kz.zhanbolat.web.infrastructer.database.dao.UserDao;
 import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class UserService {
 	private static Logger logger = LogManager.getLogger(UserService.class);
@@ -24,26 +25,46 @@ public class UserService {
 		connection = ConnectionPool.INSTANCE.getConnection();
 		userDao.setConnection(connection);
 		boolean isExisted = false;
-		User user = ((UserDao) userDao).findUserByUsernameAndPassword(username, password);
+		User user;
+		try {
+			user = ((UserDao) userDao).findUserByUsernameAndPassword(username, password);
+		} catch (DaoException e) {
+			logger.error("Error on finding the user.", e);
+			user = null;
+		}
 		if (user != null) {
 			isExisted = true;
 		}
 		return isExisted;
 	}
 	
-	public boolean registerNewUser(String username, String password) {
-		if (isExisted(username, password)) {
+	public boolean registerNewUser(User user) {
+		if (isExisted(user.getUsername(), user.getPassword())) {
 			logger.info("User with such login or password existed.");
 			return false;
 		}
-		User user = User.newUser()
-						.setUsername(username)
-						.setPassword(password)
-						.build();
 		connection = ConnectionPool.INSTANCE.getConnection();
 		userDao.setConnection(connection);
-		userDao.create(user);
+		try {
+			userDao.create(user);
+		} catch (DaoException e) {
+			logger.error("Error on creatin the new user.", e);
+			return false;
+		}
 		return true;
+	}
+	
+	public User obtainUserByUsername(String username) {
+		User user = null;
+		connection = ConnectionPool.INSTANCE.getConnection();
+		userDao.setConnection(connection);
+		try {
+			user = ((UserDao) userDao).findUserByUsername(username);
+			logger.debug(user);
+		} catch (DaoException e) {
+			logger.error("Error in obtaining the user.", e);
+		}
+		return user;
 	}
 	
 	public boolean editUser() {
