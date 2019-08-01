@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,17 +22,20 @@ public class UserDao implements AbstractDao<Long, User> {
 	private static final String SELECT_ALL_USER = 
 			"SELECT id, username, password FROM users";
 	private static final String SELECT_USER_BY_USERNAME_AND_PASSWORD =
-			"SELECT id, username, password FROM users WHERE USERNAME = ?"
-			+ " AND PASSWORD = ?";
+			"SELECT id, username, password FROM users WHERE username = ?"
+			+ " AND password = ?";
 	private static final String CREATE_NEW_USER = 
 			"INSERT INTO users(username, password, telephone, country, birthday)"
 			+ " VALUES (?, ?, ?, ?, ?);";
-	private static final String UPDATE_USER = 
+	private static final String UPDATE_USER_BY_ID = 
 			"UPDATE users SET telephone = ?, country = ?, birthday = ?"
-			+ " WHERE username = ?;";
+			+ " WHERE id = ?;";
 	private static final String SELECT_USER_BY_USERNAME = 
-			"SELECT id, telephone, country, birthday FROM users WHERE"
+			"SELECT id, password, telephone, country, birthday FROM users WHERE"
 			+ " username = ?;";
+	private static final String SELECT_USER_BY_ID = 
+			"SELECT username, password, telephone, country, birthday "
+			+ "FROM users WHERE id = ?;";
 	private Connection connection;
 	private Statement statement;
 	private PreparedStatement preStatement;
@@ -73,25 +77,30 @@ public class UserDao implements AbstractDao<Long, User> {
 		}
 		return users;
 	}
-
+	
+	/*
+	 * (non-Javadoc)
+	 * @see kz.zhanbolat.web.infrastructer.database.dao.AbstractDao#create(kz.zhanbolat.web.domain.entity.Entity)
+	 * 	In inserting the birthday to database, 
+	 * 	the birthday's value store with 1 day subtracted.
+	 */
 	@Override
 	public boolean create(User user) throws DaoException {
-		int i = 0;
 		try {
 			preStatement = connection.prepareStatement(CREATE_NEW_USER);
 			preStatement.setString(1, user.getUsername());
 			preStatement.setString(2, user.getPassword());
 			preStatement.setString(3, user.getTelephoneNumber());
 			preStatement.setString(4, user.getCountry());
-			preStatement.setDate(5, new Date(user.getBirthday().getTime()));
-			i = preStatement.executeUpdate();
+			preStatement.setObject(5, user.getBirthday().plusDays(1));
+			preStatement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DaoException(e.getMessage(), e.getCause());
 		} finally {
 			closeStatement(preStatement, logger);
 			closeConnection(connection, logger);
 		}
-		return i == 1;
+		return true;
 	}
 
 	@Override
@@ -103,11 +112,11 @@ public class UserDao implements AbstractDao<Long, User> {
 	@Override
 	public boolean update(User user) throws DaoException {
 		try {
-			preStatement = connection.prepareStatement(UPDATE_USER);
+			preStatement = connection.prepareStatement(UPDATE_USER_BY_ID);
 			preStatement.setString(1, user.getTelephoneNumber());
 			preStatement.setString(2, user.getCountry());
-			preStatement.setDate(3, new Date(user.getBirthday().getTime()));
-			preStatement.setString(4, user.getUsername());
+			preStatement.setObject(3, user.getBirthday());
+			preStatement.setLong(4, user.getId());;
 			preStatement.executeUpdate();
 		} catch (SQLException e) {
 			throw new DaoException(e.getMessage(), e.getCause());
@@ -156,9 +165,37 @@ public class UserDao implements AbstractDao<Long, User> {
 			resultSet = preStatement.executeQuery();
 			if (resultSet.next()) {
 				user = User.newUser().setId(resultSet.getLong(1))
-						.setTelephoneNumber(resultSet.getString(2))
-						.setCountry(resultSet.getString(3))
-						.setBirthday(resultSet.getDate(4).toString())
+						.setPassword(resultSet.getString(2))
+						.setTelephoneNumber(resultSet.getString(3))
+						.setCountry(resultSet.getString(4))
+						.setBirthday(resultSet.getObject(5, LocalDate.class))
+						.build();
+			} else {
+				user = null;
+			}
+		} catch (SQLException | InvalidValueException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(statement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return user;
+	}
+	
+	public User findUserById(long id) throws DaoException {
+		User user;
+		try {
+			preStatement = connection.prepareStatement(SELECT_USER_BY_ID);
+			preStatement.setLong(1, id);
+			resultSet = preStatement.executeQuery();
+			if (resultSet.next()) {
+				user = User.newUser().setUsername(resultSet.getString(1))
+						.setPassword(resultSet.getString(2))
+						.setTelephoneNumber(resultSet.getString(3))
+						.setCountry(resultSet.getString(4))
+						.setBirthday(resultSet.getObject(5, LocalDate.class))
 						.build();
 			} else {
 				user = null;

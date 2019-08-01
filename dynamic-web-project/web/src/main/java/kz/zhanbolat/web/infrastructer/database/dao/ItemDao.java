@@ -21,6 +21,7 @@ public class ItemDao implements AbstractDao<Long, Item> {
 	private Statement statement;
 	private PreparedStatement preStatement;
 	private ResultSet resultSet;
+	private long generatedId;
 	
 	public ItemDao() {
 		super();
@@ -34,6 +35,10 @@ public class ItemDao implements AbstractDao<Long, Item> {
 		this.connection = connection;
 	}
 	
+	public long getGeneratedId() {
+		return generatedId;
+	}
+	
 	@Override
 	public List<Item> findAll() throws DaoException {
 		// TODO Auto-generated method stub
@@ -43,15 +48,21 @@ public class ItemDao implements AbstractDao<Long, Item> {
 	@Override
 	public boolean create(Item item) throws DaoException {
 		try {
-			preStatement = connection.prepareStatement(CREATE_NEW_ITEM);
+			preStatement = connection.prepareStatement(CREATE_NEW_ITEM, 
+					Statement.RETURN_GENERATED_KEYS);
 			preStatement.setString(1, item.getName());
 			preStatement.setString(2, item.getDescription());
 			preStatement.setInt(3, item.getPrice());
 			preStatement.setInt(4, item.getCategoryId());
 			preStatement.executeUpdate();
+			resultSet = preStatement.getGeneratedKeys();
+			if (resultSet.next()) {
+				generatedId = resultSet.getLong(1);
+			}
 		} catch (SQLException e) {
 			throw new DaoException(e.getMessage(), e.getCause());
 		} finally {
+			closeResultSet(resultSet, logger);
 			closeStatement(preStatement, logger);
 			closeConnection(connection, logger);
 		}

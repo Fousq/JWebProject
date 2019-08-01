@@ -54,12 +54,24 @@ public class UserService {
 		return true;
 	}
 	
-	public User obtainUserByUsername(String username) {
+	public User obtainUserInfo(String username) {
 		User user = null;
 		connection = ConnectionPool.INSTANCE.getConnection();
 		userDao.setConnection(connection);
 		try {
 			user = ((UserDao) userDao).findUserByUsername(username);
+		} catch (DaoException e) {
+			logger.error("Error in obtaining the user.", e);
+		}
+		return user;
+	}
+	
+	public User obtainUserInfo(long userId) {
+		User user = null;
+		connection = ConnectionPool.INSTANCE.getConnection();
+		userDao.setConnection(connection);
+		try {
+			user = ((UserDao) userDao).findUserById(userId);
 		} catch (DaoException e) {
 			logger.error("Error in obtaining the user.", e);
 		}

@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -73,16 +74,19 @@ public class RegistrationController extends HttpServlet {
 					+ ".", e);
 			errorMessage = "label.context.registrationInvalidError";
 		}
+		HttpSession session = request.getSession();
 		String page = null;
 		if (created) {
-			request.getSession().setAttribute("errorMessage", null);
+			if (session.getAttribute("errorMessage") != null) {
+				session.removeAttribute("errorMessage");
+			}
 			page = "/login";
 		} else {
 			page = "/registration";
 			if (errorMessage == null) {
 				errorMessage = "label.context.registrationError";
 			}
-			request.getSession().setAttribute("errorMessage", errorMessage);
+			session.setAttribute("errorMessage", errorMessage);
 		}
 		response.sendRedirect(request.getContextPath() + page);
 	}

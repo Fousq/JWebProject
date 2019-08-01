@@ -7,8 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kz.zhanbolat.web.application.service.UserService;
+import kz.zhanbolat.web.domain.entity.User;
 
 /**
  * Servlet implementation class LoginController
@@ -47,9 +49,13 @@ public class LoginController extends HttpServlet {
 		String username = request.getParameter(LOGIN_PARAM_NAME);
 		String password = request.getParameter(PASSWORD_PARAM_NAME);
 		String page;
+		HttpSession session = request.getSession();
 		if (service.isExisted(username, password)) {
-			request.getSession().setAttribute("username", username);
-			request.getSession().setAttribute("errorMessage", null);
+			User user = service.obtainUserInfo(username);
+			session.setAttribute("id", user.getId());
+			if (session.getAttribute("errorMessage") != null) {
+				session.removeAttribute("errorMessage");
+			}
 			page = "/";
 		} else {
 			page = "/login";

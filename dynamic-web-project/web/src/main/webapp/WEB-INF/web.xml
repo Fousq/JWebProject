@@ -65,6 +65,13 @@
 		<servlet-name>LogoutController</servlet-name>
 		<servlet-class>kz.zhanbolat.web.presintation.controller.LogoutController</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>ManageController</display-name>
+		<servlet-name>ManageController</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.ManageController</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
@@ -100,6 +107,10 @@
 	<servlet-mapping>
 		<servlet-name>LogoutController</servlet-name>
 		<url-pattern>/LogoutController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ManageController</servlet-name>
+		<url-pattern>/ManageController</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>

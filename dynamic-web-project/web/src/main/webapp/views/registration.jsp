@@ -22,14 +22,14 @@
 	<form action="registration" method="post">
 		<input type="hidden" name="action" value="registr"/>
 		<label for="login"><fmt:message key="label.context.login" />:</label>
-		<input type="text" name="login" id="login" required />
+		<input type="text" name="login" id="login" required /><br>
 		<label for="password"><fmt:message key="label.context.password" />:</label>
 		<input type="password" name="password" id="password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,16}$"/>
 		<label for="togglePassword"><fmt:message key="label.context.togglePassword" /></label>
-		<input type="checkbox" id="togglePassword" />
+		<input type="checkbox" id="togglePassword" /><br>
 		<label for="telephone"><fmt:message key="label.context.telephone"/>:</label>
 		<input type="text" id="telephoneNumber" name="telephone" pattern="^[0-9]{3,4}\-[0-9]{3,3}(\-\d{2,2}){2,2}$">
-		<span><fmt:message key="label.context.telephoneNumberExample"/></span>
+		<span><fmt:message key="label.help.telephone"/></span><br>
 		<label for="country"><fmt:message key="label.context.country" /></label>
 		<select id="country" name="country">
    			<option value="Afganistan">Afghanistan</option>
@@ -278,9 +278,10 @@
    			<option value="Zaire">Zaire</option>
    			<option value="Zambia">Zambia</option>
    			<option value="Zimbabwe">Zimbabwe</option>
-		</select>
+		</select><br>
 		<label for="birthday"><fmt:message key="label.context.birthday"/>:</label>
 		<input type="date" name="birthday" id="birthday"/>
+		<span><fmt:message key="label.help.birthday" /></span><br>
 		<fmt:message key="label.text.registration" var="registrSubmit"></fmt:message>
 		<input type="submit" value="${registrSubmit}" />
 	</form>

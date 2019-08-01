@@ -8,22 +8,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kz.zhanbolat.web.application.service.RecordService;
 import kz.zhanbolat.web.application.service.UserService;
 import kz.zhanbolat.web.domain.entity.User;
 
 /**
- * Servlet implementation class ProfileController
+ * Servlet implementation class ManageController
  */
-@WebServlet(urlPatterns="/profile")
-public class ProfileController extends HttpServlet {
+@WebServlet(urlPatterns="/manage")
+public class ManageController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	public static final String USER_ID_ATTR_NAME = "id";
-	private static final String TELEPHONE_NUMBER_DEFAUL_VALUE = "No number";
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ProfileController() {
+    public ManageController() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -33,8 +32,7 @@ public class ProfileController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		processGetRequest(request, response);
-		request.getRequestDispatcher("views/profile.jsp").include(request, response);
+		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -45,18 +43,12 @@ public class ProfileController extends HttpServlet {
 		doGet(request, response);
 	}
 	
+	//Not impl
 	private void processGetRequest(HttpServletRequest request, HttpServletResponse response) {
-		UserService service = new UserService();
-		long userId = (long) request.getSession().getAttribute(USER_ID_ATTR_NAME);
-		User user = service.obtainUserInfo(userId);
-		request.setAttribute("username", user.getUsername());
-		if (user.getTelephoneNumber().isEmpty() || user.getTelephoneNumber() == null) {
-			request.setAttribute("telephone", TELEPHONE_NUMBER_DEFAUL_VALUE);
-		} else {
-			request.setAttribute("telephone", user.getTelephoneNumber());
-		}
-		request.setAttribute("country", user.getCountry());
-		request.setAttribute("birthday", user.getBirthday());
+		String username = (String) request.getSession().getAttribute("username");
+		UserService userService = new UserService();
+		
+		RecordService recordService = new RecordService();
 	}
 	
 }

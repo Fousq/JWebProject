@@ -1,11 +1,16 @@
 package kz.zhanbolat.web.domain.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Record implements Entity {
+	private static Logger logger = LogManager.getLogger(Record.class);
 	private Long id;
 	private boolean active;
-	private Date createdAt;
+	private LocalDate createdAt;
 	private Long userId;
 	private Long itemId;
 	
@@ -21,7 +26,7 @@ public class Record implements Entity {
 		return active;
 	}
 	
-	public Date getCreatedAt() {
+	public LocalDate getCreatedAt() {
 		return createdAt;
 	}
 	
@@ -54,8 +59,21 @@ public class Record implements Entity {
 			return this;
 		}
 		
-		public Builder setCreateAt(Date createdAt) {
+		public Builder setCreateAt(LocalDate createdAt) {
 			Record.this.createdAt = createdAt;
+			
+			return this;
+		}
+		
+		public Builder setCreateAt(String createdAt) {
+			try {
+				Record.this.createdAt = LocalDate.parse(createdAt);
+			} catch (DateTimeParseException e) {
+				logger.error("Cannot parse the string to a createAt "
+						+ "format(year-month-day)."
+						+ " CreateAt will be setted to today date.", e);
+				Record.this.createdAt = LocalDate.now();
+			}
 			
 			return this;
 		}
@@ -76,6 +94,12 @@ public class Record implements Entity {
 			return Record.this;
 		}
 		
+	}
+
+	@Override
+	public String toString() {
+		return "Record [id=" + id + ", active=" + active + ", createdAt=" + createdAt + ", userId=" + userId
+				+ ", itemId=" + itemId + "]";
 	}
 	
 }

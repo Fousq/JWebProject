@@ -24,7 +24,7 @@ public interface AbstractDao<K, T extends Entity> {
 	 */
 	default void closeConnection(Connection connection, Logger logger) {
 		try {
-			if (connection != null) {
+			if (connection != null && connection.getAutoCommit()) {
 				connection.close();
 			}
 		} catch (SQLException e) {

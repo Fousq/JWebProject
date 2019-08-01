@@ -21,9 +21,10 @@
 	<form action="edit" method="post">
 		<input type="hidden" name="action" value="edit" />
 		<label for="telephone"><fmt:message key="label.context.telephone" />: </label>
-		<input type="text" name="telephone" id="telephone" value="${telephone}" pattern="^[0-9]{3,4}\-[0-9]{3,3}(\-\d{2,2}){2,2}$" /><br>
+		<input type="text" name="telephone" id="telephone" value="${telephone}" pattern="^[0-9]{3,4}\-[0-9]{3,3}(\-\d{2,2}){2,2}$" />
+		<span><fmt:message key="label.help.telephone"/></span><br>
 		<label for="country"><fmt:message key="label.context.country" />: </label>
-		<select id="country" name="country" value="${country}">
+		<select id="country" name="country" >
    			<option value="Afganistan">Afghanistan</option>
    			<option value="Albania">Albania</option>
    			<option value="Algeria">Algeria</option>
@@ -272,7 +273,8 @@
    			<option value="Zimbabwe">Zimbabwe</option>
 		</select><br>
 		<label for="birthday"><fmt:message key="label.context.birthday" />: </label>
-		<input type="date" name="birthday" id="birthday" value="${birthday}"/><br>
+		<input type="date" name="birthday" id="birthday" value="${birthday}"/>
+		<span><fmt:message key="label.help.birthday" /></span><br>
 		<fmt:message var="submitEdit" key="label.text.edit"/>
 		<input type="submit" value="${submitEdit}" />
 	</form>

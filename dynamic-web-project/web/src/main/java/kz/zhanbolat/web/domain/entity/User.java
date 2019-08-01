@@ -1,8 +1,7 @@
 package kz.zhanbolat.web.domain.entity;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.util.Objects;
 
 import org.apache.logging.log4j.LogManager;
@@ -18,8 +17,7 @@ public class User implements Entity {
 	private String password;
 	private String telephoneNumber;
 	private String country;
-	private Date birthday;
-	private SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+	private LocalDate birthday;
 	
 	private User() {
 		
@@ -45,14 +43,8 @@ public class User implements Entity {
 		return country;
 	}
 	
-	public Date getBirthday() {
+	public LocalDate getBirthday() {
 		return birthday;
-	}
-	
-	public String getFormatedBirthday() {
-		logger.debug(birthday);
-		logger.debug(format.format(birthday));
-		return format.format(birthday);
 	}
 	
 	public static Builder newUser() {
@@ -103,7 +95,7 @@ public class User implements Entity {
 			return this;
 		}
 		
-		public Builder setBirthday(Date birthday) {
+		public Builder setBirthday(LocalDate birthday) {
 			User.this.birthday = birthday;
 			
 			return this;
@@ -111,12 +103,12 @@ public class User implements Entity {
 		
 		public Builder setBirthday(String birthday) {
 			try {
-				User.this.birthday = format.parse(birthday);
-			} catch (ParseException e) {
+				User.this.birthday = LocalDate.parse(birthday);
+			} catch (DateTimeParseException e) {
 				logger.error("Cannot parse the string to a birthday "
-						+ "format(day-month-year). Birthday will be setted "
-						+ "to today date.", e);
-				User.this.birthday = new Date();
+						+ "format(year-month-day)."
+						+ " Birthday will be setted to today date.", e);
+				User.this.birthday = LocalDate.now();
 			}
 			
 			return this;

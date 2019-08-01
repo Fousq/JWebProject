@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,7 +23,7 @@ import kz.zhanbolat.web.domain.exception.InvalidValueException;
 public class EditController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Logger logger = LogManager.getLogger(EditController.class);
-       
+    
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -50,20 +51,20 @@ public class EditController extends HttpServlet {
 	
 	private void processGetRequest(HttpServletRequest request, HttpServletResponse response) {
 		UserService service = new UserService();
-		String username = 
-				(String) request.getSession()
-				.getAttribute(ProfileController.USERNAME_ATTR_NAME);
-		User user = service.obtainUserByUsername(username);
+		long userId = 
+				(long) request.getSession()
+				.getAttribute(ProfileController.USER_ID_ATTR_NAME);
+		User user = service.obtainUserInfo(userId);
 		request.setAttribute("telephone", user.getTelephoneNumber());
 		request.setAttribute("country", user.getCountry());
-		request.setAttribute("birthday", user.getFormatedBirthday());
+		request.setAttribute("birthday", user.getBirthday().toString());
 	}
 	
 	private void processPostRequest(HttpServletRequest request, HttpServletResponse response) throws IOException {
 		UserService service = new UserService();
-		String username = 
-				(String) request.getSession()
-				.getAttribute(ProfileController.USERNAME_ATTR_NAME);
+		HttpSession session = request.getSession();
+		long userId = 
+				(long) session.getAttribute(ProfileController.USER_ID_ATTR_NAME);
 		String telephoneNumber = 
 				request.getParameter(RegistrationController.TELEPHONE_NUMBER_PARAM_NAME);
 		String country =
@@ -72,22 +73,25 @@ public class EditController extends HttpServlet {
 				request.getParameter(RegistrationController.BIRTHDAY_PARAM_NAME);
 		boolean isEdited = false;
 		try {
-			User user = User.newUser().setUsername(username)
+			User user = User.newUser().setId(userId)
 					.setTelephoneNumber(telephoneNumber)
 					.setCountry(country)
 					.setBirthday(birthday)
 					.build();
 			isEdited = service.editUser(user);
 		} catch (InvalidValueException e) {
-			logger.error("Invalid value has been caught on user " + username
+			logger.error("Invalid value has been caught on user " + userId
 					+ ".", e);
 		}
 		String page = null;
 		if (isEdited) {
+			if (session.getAttribute("errorMessage") != null) {
+				session.removeAttribute("errorMessage");
+			}
 			page = "/profile";
 		} else {
 			page = "/error";
-			request.getSession().setAttribute("errorMessage", "ERROR on editing the user.");
+			session.setAttribute("errorMessage", "ERROR on editing the user.");
 		}
 		response.sendRedirect(request.getContextPath() + page);
 	}
