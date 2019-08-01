@@ -19,8 +19,8 @@ public class AuthorizationFilter implements Filter {
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request; 
 		HttpServletResponse resp = (HttpServletResponse) response;
-		Object username = req.getSession().getAttribute("username");
-		if (username == null) {
+		Object userId = req.getSession().getAttribute("id");
+		if (userId == null) {
 			resp.sendRedirect(req.getContextPath() + "/login");
 		}
 		chain.doFilter(request, response);

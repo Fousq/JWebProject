@@ -1,6 +1,9 @@
 package kz.zhanbolat.web.presintation.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -8,9 +11,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import kz.zhanbolat.web.application.service.ItemService;
 import kz.zhanbolat.web.application.service.RecordService;
-import kz.zhanbolat.web.application.service.UserService;
-import kz.zhanbolat.web.domain.entity.User;
+import kz.zhanbolat.web.domain.entity.Item;
+import kz.zhanbolat.web.domain.entity.Record;
 
 /**
  * Servlet implementation class ManageController
@@ -32,7 +36,8 @@ public class ManageController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		processGetRequest(request, response);
+		request.getRequestDispatcher("views/manage.jsp").include(request, response);
 	}
 
 	/**
@@ -43,12 +48,14 @@ public class ManageController extends HttpServlet {
 		doGet(request, response);
 	}
 	
-	//Not impl
 	private void processGetRequest(HttpServletRequest request, HttpServletResponse response) {
-		String username = (String) request.getSession().getAttribute("username");
-		UserService userService = new UserService();
-		
+		long userId = (long) request.getSession().getAttribute("id");
 		RecordService recordService = new RecordService();
+		ItemService itemService = new ItemService();
+		List<Record> records = recordService.obtainRecordsListByUserId(userId);
+		List<Item> items = itemService.obtainUserItems(userId);
+		request.setAttribute("records", records);
+		request.setAttribute("items", items);
 	}
 	
 }

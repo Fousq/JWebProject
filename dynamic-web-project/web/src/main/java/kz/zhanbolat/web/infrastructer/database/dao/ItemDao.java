@@ -17,6 +17,9 @@ public class ItemDao implements AbstractDao<Long, Item> {
 	private static Logger logger = LogManager.getLogger(ItemDao.class);
 	private static final String CREATE_NEW_ITEM = 
 			"INSERT INTO items(name, description, price, category_id) VALUES (?, ?, ?, ?);";
+	private static final String SELECT_ITEM_BY_ID = 
+			"SELECT name, description, price, category_id FROM items "
+			+ "WHERE id = ?;";
 	private Connection connection;
 	private Statement statement;
 	private PreparedStatement preStatement;
@@ -72,8 +75,23 @@ public class ItemDao implements AbstractDao<Long, Item> {
 
 	@Override
 	public Item read(Long id) throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
+		Item item = null;
+		try {
+			preStatement = connection.prepareStatement(SELECT_ITEM_BY_ID);
+			preStatement.setLong(1, id);
+			resultSet = preStatement.executeQuery();
+			if (resultSet.next()) {
+				item = Item.newBuilder().setId(id)
+						.setName(resultSet.getString(1))
+						.setDescription(resultSet.getString(2))
+						.setPrice(3)
+						.setCategoryId(4)
+						.build();
+			}
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		}
+		return item;
 	}
 
 	@Override

@@ -1,7 +1,6 @@
 package kz.zhanbolat.web.application.service;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -11,10 +10,11 @@ import kz.zhanbolat.web.domain.entity.Record;
 import kz.zhanbolat.web.infrastructer.database.dao.AbstractDao;
 import kz.zhanbolat.web.infrastructer.database.dao.RecordDao;
 import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
+import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class RecordService {
 	private static Logger logger = LogManager.getLogger(RecordService.class);
-	private AbstractDao dao;
+	private AbstractDao<Long, Record> dao;
 	private Connection connection;
 	
 	public RecordService() {
@@ -24,13 +24,13 @@ public class RecordService {
 	public List<Record> obtainRecordsListByUserId(long userId) {
 		connection = ConnectionPool.INSTANCE.getConnection();
 		dao.setConnection(connection);
-		List<Record> records = new ArrayList<>();
-		return null;
-	}
-	
-	public boolean createNewRecord(Record record, String username) {
-		boolean isCreated = false;
-		return isCreated;
+		List<Record> records = null;
+		try {
+			records = ((RecordDao) dao).findAllByUserId(userId);
+		} catch (DaoException e) {
+			logger.error("ERROR on finding all records of user.", e);
+		}
+		return records;
 	}
 	
 }

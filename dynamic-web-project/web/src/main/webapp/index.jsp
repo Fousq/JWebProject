@@ -19,7 +19,7 @@
 		<li><a href="?locale=ru"><fmt:message key="label.lang.ru" /></a></li>
 	</ul>
 	<c:choose>
-		<c:when test="${not empty sessionScope.username}">
+		<c:when test="${not empty sessionScope.id}">
 			<a href="profile"><fmt:message key="label.text.profile" /></a>
 			<a href="logout"><fmt:message key="label.text.logout"/></a>
 		</c:when>

@@ -18,8 +18,14 @@
 		<li><a href="${pageContext.request.requestURI}?locale=ru"><fmt:message key="label.lang.ru" /></a></li>
 	</ul>
 	<br>
-	<c:forEach var="record" items="${records}">
-		<c:out value="${record}"/>
+	<c:forEach var="i" begin="0" end="${records.size() - 1}">
+		<hr>
+			<c:set var="record" value="${records.get(i) }"/>
+			<c:set var="item" value="${items.get(i) }"/>
+			<a href="#"><c:out value="${item.name}"/></a><br>
+			<span><fmt:message key="label.context.status" />: <c:out value="${record.active ? 'Activated' : 'Deactivated'}" /></span><br>
+			<span><fmt:message key="label.context.createdAt" />: <c:out value="${record.createdAt}" /></span>
+		<hr>
 	</c:forEach>
 </body>
 </html>
