@@ -23,6 +23,8 @@ public class RecordDao implements AbstractDao<Long, Record> {
 	private static final String CREATE_NEW_RECORD = 
 			"INSERT INTO records(active, createdAt, user_id, item_id) "
 			+ "VALUES (?, ?, ?, ?);";
+	private static final String DELETE_RECORD_BY_ITEM_ID = 
+			"DELETE FROM records WHERE item_id = ?;";
 	private Connection connection;
 	private Statement statement;
 	private PreparedStatement preStatement;
@@ -108,6 +110,22 @@ public class RecordDao implements AbstractDao<Long, Record> {
 		}
 		
 		return records;
+	}
+	
+	public boolean deleteByItemId(long itemId) throws DaoException {
+		boolean isDeleted = false;
+		try {
+			preStatement = connection.prepareStatement(DELETE_RECORD_BY_ITEM_ID);
+			preStatement.setLong(1, itemId);
+			isDeleted = preStatement.executeUpdate() == 1;
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return isDeleted;
 	}
 	
 }

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
@@ -20,6 +21,13 @@ public class ItemDao implements AbstractDao<Long, Item> {
 	private static final String SELECT_ITEM_BY_ID = 
 			"SELECT name, description, price, category_id FROM items "
 			+ "WHERE id = ?;";
+	private static final String SELECT_ITEM_BY_USER_ID = 
+			"SELECT items.id, items.name, items.description, items.price, "
+			+ "items.category_id FROM items "
+			+ "INNER JOIN records ON items.id = records.item_id "
+			+ "AND records.user_id = ?;";
+	private static final String DELETE_ITEM_BY_ID = 
+			"DELETE FROM items WHERE id = ?;";
 	private Connection connection;
 	private Statement statement;
 	private PreparedStatement preStatement;
@@ -90,6 +98,10 @@ public class ItemDao implements AbstractDao<Long, Item> {
 			}
 		} catch (SQLException e) {
 			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
 		}
 		return item;
 	}
@@ -101,9 +113,47 @@ public class ItemDao implements AbstractDao<Long, Item> {
 	}
 
 	@Override
-	public boolean delete(Item entity) throws DaoException {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean delete(Item item) throws DaoException {
+		boolean isDeleted = false;
+		try {
+			preStatement = connection.prepareStatement(DELETE_ITEM_BY_ID);
+			preStatement.setLong(1, item.getId());
+			isDeleted = preStatement.executeUpdate() == 1;
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return isDeleted;
 	}
-
+	
+	public List<Item> findAllItemByUserId(long userId) throws DaoException {
+		List<Item> items = null;
+		try {
+			preStatement = connection.prepareStatement(SELECT_ITEM_BY_USER_ID);
+			preStatement.setLong(1, userId);
+			resultSet = preStatement.executeQuery();
+			items = new ArrayList<>();
+			while(resultSet.next()) {
+				Item item = Item.newBuilder().setId(resultSet.getLong(1))
+						.setName(resultSet.getString(2))
+						.setDescription(resultSet.getString(3))
+						.setPrice(resultSet.getInt(4))
+						.setCategoryId(resultSet.getInt(5))
+						.build();
+				items.add(item);
+			}
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return items;
+	}
+	
 }

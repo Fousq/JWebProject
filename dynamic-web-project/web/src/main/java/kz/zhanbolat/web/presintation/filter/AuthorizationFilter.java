@@ -11,7 +11,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(urlPatterns= {"/profile", "/advert"})
+@WebFilter(urlPatterns= {"/profile", "/advert", "/delete", "/manage", "/edit"})
 public class AuthorizationFilter implements Filter {
 
 	@Override

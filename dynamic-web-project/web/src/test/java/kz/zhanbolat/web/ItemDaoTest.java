@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -38,6 +40,29 @@ public class ItemDaoTest {
 							.build();
 		boolean created = dao.create(item);
 		assertTrue(created);
+	}
+	
+	@Test
+	public void shouldFindAllUsersItem() throws DaoException {
+		List<Item> items = new ArrayList<>();
+		long userId = 10;
+		items = dao.findAllItemByUserId(userId);
+		assertTrue(items.size() == 1);
+		items.forEach(item -> logger.debug(item));
+	}
+	
+	@Test
+	public void itemShouldBeDeleted() throws DaoException {
+		long itemId = 1;
+		Item item = Item.newBuilder().setId(itemId)
+				.build();
+		boolean isDeleted = dao.delete(item);
+		assertTrue(isDeleted);
+	}
+	
+	@After
+	public void destroy() throws SQLException {
+		connection.close();
 	}
 	
 }

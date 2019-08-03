@@ -27,6 +27,6 @@
 	<br/>
 	<a href="advert"><fmt:message key="label.context.advert" /></a>
 	<a href="edit"><fmt:message key="label.text.edit" /></a>
-	<a href="manage"><fmt:message key="label.text.manage" /></a>
+	<a href="manage?page=1"><fmt:message key="label.text.manage" /></a>
 </body>
 </html>

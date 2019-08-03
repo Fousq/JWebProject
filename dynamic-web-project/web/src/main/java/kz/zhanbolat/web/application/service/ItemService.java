@@ -14,6 +14,7 @@ import kz.zhanbolat.web.domain.entity.Record;
 import kz.zhanbolat.web.infrastructer.database.dao.AbstractDao;
 import kz.zhanbolat.web.infrastructer.database.dao.ItemDao;
 import kz.zhanbolat.web.infrastructer.database.dao.RecordDao;
+import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
 import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class ItemService {
@@ -49,30 +50,35 @@ public class ItemService {
 		return isCreated;
 	}
 	
-	/*
-	 * Obtain the newest item from the user.
-	 */
 	public List<Item> obtainUserItems(long userId) {
+		connection = ConnectionPool.INSTANCE.getConnection();
+		itemDao.setConnection(connection);
+		List<Item> items = null;
+		try {
+			items = ((ItemDao) itemDao).findAllItemByUserId(userId);
+		} catch (DaoException e) {
+			logger.error("ERROR on obtaining all of the user's items.", e);
+		}
+		
+		return items;
+	}
+	
+	public boolean deleteItem(Item item) {
+		boolean isDeleted = false;
 		EntityTransaction transaction = new EntityTransaction();
 		AbstractDao<Long, Record> recordDao = new RecordDao();
-		List<Item> items = null;
 		transaction.begin(itemDao, recordDao);
 		try {
-			List<Record> records = 
-					((RecordDao) recordDao).findAllByUserId(userId);
-			items = new ArrayList<>();
-			for (Record record : records) {
-				Item item = itemDao.read(record.getItemId());
-				items.add(item);
-			}
+			itemDao.delete(item);
+			((RecordDao) recordDao).deleteByItemId(item.getId());
 			transaction.commit();
 		} catch (DaoException e) {
+			logger.error("ERROR on deleting the item.", e);
 			transaction.rollback();
 		} finally {
 			transaction.end();
 		}
-		
-		return items;
+		return isDeleted;
 	}
 	
 }

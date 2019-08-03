@@ -62,7 +62,7 @@ public enum ConnectionPool {
 			logger.warn("Connection is not from the pool, cannot be realeased.");
 		}
 		usedConnections.remove(connection);
-		freeConnections.add(connection);
+		freeConnections.offer(connection);
 	}
 	
 	public void destroyPool() {

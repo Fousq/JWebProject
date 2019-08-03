@@ -72,6 +72,13 @@
 		<servlet-name>ManageController</servlet-name>
 		<servlet-class>kz.zhanbolat.web.presintation.controller.ManageController</servlet-class>
 	</servlet>
+	<servlet>
+		<description>
+		</description>
+		<display-name>DeleteController</display-name>
+		<servlet-name>DeleteController</servlet-name>
+		<servlet-class>kz.zhanbolat.web.presintation.controller.DeleteController</servlet-class>
+	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>
 		<url-pattern>/LoginController</url-pattern>
@@ -107,6 +114,10 @@
 	<servlet-mapping>
 		<servlet-name>ManageController</servlet-name>
 		<url-pattern>/ManageController</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>DeleteController</servlet-name>
+		<url-pattern>/DeleteController</url-pattern>
 	</servlet-mapping>
 	
 	<session-config>
