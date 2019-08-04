@@ -21,6 +21,18 @@ public class RecordService {
 		dao = new RecordDao();
 	}
 	
+	public List<Record> obtainRecords(int limit, long offset) {
+		connection = ConnectionPool.INSTANCE.getConnection();
+		dao.setConnection(connection);
+		List<Record> records = null;
+		try {
+			records = ((RecordDao) dao).findAll(limit, offset);
+		} catch (DaoException e) {
+			logger.error("ERROR on finding all records.", e);
+		}
+		return records;
+	}
+	
 	public List<Record> obtainRecordsListByUserId(long userId) {
 		connection = ConnectionPool.INSTANCE.getConnection();
 		dao.setConnection(connection);
@@ -32,5 +44,46 @@ public class RecordService {
 		}
 		return records;
 	}
+	
+	public List<Record> obtainRecordsByCategoryId(int categoryId) {
+		connection = ConnectionPool.INSTANCE.getConnection();
+		dao.setConnection(connection);
+		List<Record> records = null;
+		try {
+			records = ((RecordDao) dao).findAllRecordsByCategoryId(categoryId);
+		} catch (DaoException e) {
+			logger.error("ERROR on finding all records");
+		}
+		
+		return records;
+	}
+	
+	public List<Record> obtainRecordsByCategoryId(int categoryId, int limit) {
+		connection = ConnectionPool.INSTANCE.getConnection();
+		dao.setConnection(connection);
+		List<Record> records = null;
+		try {
+			records = ((RecordDao) dao).findAllRecordsByCategoryId(categoryId, limit);
+		} catch (DaoException e) {
+			logger.error("ERROR on finding all records");
+		}
+		
+		return records;
+	}
+	
+	public List<Record> obtainRecordsByCategoryId(int categoryId, int limit, long offset) {
+		connection = ConnectionPool.INSTANCE.getConnection();
+		dao.setConnection(connection);
+		List<Record> records = null;
+		try {
+			records = ((RecordDao) dao).findAllRecordsByCategoryId(categoryId, limit, offset);
+		} catch (DaoException e) {
+			logger.error("ERROR on finding all records");
+		}
+		
+		return records;
+	}
+	
+	
 	
 }

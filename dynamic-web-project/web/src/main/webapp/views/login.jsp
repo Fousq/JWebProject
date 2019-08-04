@@ -20,7 +20,6 @@
 	</ul>
 	<br/>
 	<form action="login" method="post">
-		<input type="hidden" name="action" value="login" />
 		<label for="login"><fmt:message key="label.context.login" /></label>
 		<input type="text" name="login" id="login" required />
 		<label for="password"><fmt:message key="label.context.password" /></label>
@@ -34,17 +33,8 @@
 		<fmt:message key="${errorMessage}"/>
 	</c:if>
 	<a href="registration"><fmt:message key="label.text.registration"/></a>
-	<script type="text/javascript">
-		const showOrHidePassword = () => {
-			const password = document.getElementById('password');
-			if (password.type === 'password') {
-				password.type = 'text';
-			} else {
-				password.type = 'password';
-			}
-		};
-		const togglePassword = document.getElementById('togglePassword');
-		togglePassword.addEventListener("change", showOrHidePassword);
+	<script type="text/javascript" src="../static/refreshSecurity.js"></script>
+	<script type="text/javascript" src="../static/toggle.js">
 	</script>
 </body>
 </html>

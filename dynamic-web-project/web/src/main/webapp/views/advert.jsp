@@ -19,7 +19,6 @@
 	</ul>
 	<br>
 	<form action="advert" method="post">
-		<input type="hidden" name="action" value="createItem" />
 		<label for="name"><fmt:message key="label.context.itemName"/>: </label>
 		<input type="text" name="name" id="name" /><br>
 		<label for="description"><fmt:message key="label.context.description" />: </label>
@@ -37,5 +36,6 @@
 		<fmt:message var="submitCreate" key="label.text.create"/>
 		<input type="submit" value="${submitCreate}" />
 	</form>
+	<script type="text/javascript" src="../static/refreshSecurity.js"></script>
 </body>
 </html>

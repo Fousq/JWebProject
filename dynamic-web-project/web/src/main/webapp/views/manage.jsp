@@ -14,8 +14,8 @@
 </head>
 <body>
 	<ul>
-		<li><a href="${pageContext.request.requestURI}?locale=en"><fmt:message key="label.lang.en" /></a></li>
-		<li><a href="${pageContext.request.requestURI}?locale=ru"><fmt:message key="label.lang.ru" /></a></li>
+		<li><a href="${pageContext.request.requestURI}?locale=en&page=${pageId}"><fmt:message key="label.lang.en" /></a></li>
+		<li><a href="${pageContext.request.requestURI}?locale=ru&page=${pageId}"><fmt:message key="label.lang.ru" /></a></li>
 	</ul>
 	<br>
 	<c:forEach var="i" begin="0" end="${records.size() - 1}">

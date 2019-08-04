@@ -16,6 +16,14 @@ import kz.zhanbolat.web.infrastructer.exception.DaoException;
 
 public class ItemDao implements AbstractDao<Long, Item> {
 	private static Logger logger = LogManager.getLogger(ItemDao.class);
+	private static final String SELECT_ALL_ITEMS = 
+			"SELECT id, name, description, price, category_id FROM items;";
+	private static final String SELECT_ALL_ITEMS_WITH_LIMIT = 
+			"SELECT id, name, description, price, category_id FROM items "
+			+ "LIMIT ?;";
+	private static final String SELECT_ALL_ITEMS_WITH_LIMIT_BEGIN_OFFSET = 
+			"SELECT id, name, description, price, category_id FROM items "
+			+ "LIMIT ? OFFSET ?;";
 	private static final String CREATE_NEW_ITEM = 
 			"INSERT INTO items(name, description, price, category_id) VALUES (?, ?, ?, ?);";
 	private static final String SELECT_ITEM_BY_ID = 
@@ -28,6 +36,15 @@ public class ItemDao implements AbstractDao<Long, Item> {
 			+ "AND records.user_id = ?;";
 	private static final String DELETE_ITEM_BY_ID = 
 			"DELETE FROM items WHERE id = ?;";
+	private static final String SELECT_ALL_ITEMS_BY_CATEGORY_ID = 
+			"SELECT id, name, description, price FROM items "
+			+ "WHERE category_id = ?;";
+	private static final String SELECT_ALL_ITEMS_BY_CATEGORY_ID_WITH_LIMIT =
+			"SELECT id, name, description, price FROM items "
+			+ "WHERE category_id = ? LIMIT ?;";
+	private static final String SELECT_ALL_ITEMS_BY_CATEGORY_ID_WITH_LIMIT_BEGIN_OFFSET =
+			"SELECT id, name, description, price FROM items "
+			+ "WHERE category_id = ? LIMIT ? OFFSET ?;";
 	private Connection connection;
 	private Statement statement;
 	private PreparedStatement preStatement;
@@ -52,10 +69,84 @@ public class ItemDao implements AbstractDao<Long, Item> {
 	
 	@Override
 	public List<Item> findAll() throws DaoException {
-		// TODO Auto-generated method stub
-		return null;
+		List<Item> items = new ArrayList<>();
+		try {
+			statement = connection.createStatement();
+			resultSet = statement.executeQuery(SELECT_ALL_ITEMS);
+			while(resultSet.next()) {
+				Item item = Item.newBuilder().setId(resultSet.getLong(1))
+						.setName(resultSet.getString(2))
+						.setDescription(resultSet.getString(3))
+						.setPrice(resultSet.getInt(4))
+						.setCategoryId(resultSet.getInt(5))
+						.build();
+				items.add(item);
+			}
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(statement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return items;
 	}
-
+	
+	public List<Item> findAll(int limit) throws DaoException {
+		List<Item> items = new ArrayList<>(limit);
+		try {
+			preStatement = connection.prepareStatement(SELECT_ALL_ITEMS_WITH_LIMIT);
+			preStatement.setInt(1, limit);
+			resultSet = preStatement.executeQuery();
+			while(resultSet.next()) {
+				Item item = Item.newBuilder().setId(resultSet.getLong(1))
+						.setName(resultSet.getString(2))
+						.setDescription(resultSet.getString(3))
+						.setPrice(resultSet.getInt(4))
+						.setCategoryId(resultSet.getInt(5))
+						.build();
+				items.add(item);
+			}
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return items;
+	}
+	
+	public List<Item> findAll(int limit, long offset) throws DaoException {
+		List<Item> items = new ArrayList<>(limit);
+		try {
+			preStatement = 
+					connection.prepareStatement(SELECT_ALL_ITEMS_WITH_LIMIT_BEGIN_OFFSET);
+			preStatement.setInt(1, limit);
+			preStatement.setLong(2, offset);
+			resultSet = preStatement.executeQuery();
+			while(resultSet.next()) {
+				Item item = Item.newBuilder().setId(resultSet.getLong(1))
+						.setName(resultSet.getString(2))
+						.setDescription(resultSet.getString(3))
+						.setPrice(resultSet.getInt(4))
+						.setCategoryId(resultSet.getInt(5))
+						.build();
+				items.add(item);
+			}
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return items;
+	}
+	
 	@Override
 	public boolean create(Item item) throws DaoException {
 		try {
@@ -153,6 +244,86 @@ public class ItemDao implements AbstractDao<Long, Item> {
 			closeConnection(connection, logger);
 		}
 		
+		return items;
+	}
+	
+	public List<Item> findAllByCategoryId(int categoryId) throws DaoException {
+		List<Item> items = new ArrayList<>();
+		try {
+			preStatement = connection.prepareStatement(SELECT_ALL_ITEMS_BY_CATEGORY_ID);
+			preStatement.setInt(1, categoryId);
+			resultSet = preStatement.executeQuery();
+			while(resultSet.next()) {
+				Item item = Item.newBuilder().setId(resultSet.getLong(1))
+						.setName(resultSet.getString(2))
+						.setDescription(resultSet.getString(3))
+						.setPrice(resultSet.getInt(4))
+						.setCategoryId(categoryId)
+						.build();
+				items.add(item);
+			}
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return items;
+	}
+	
+	public List<Item> findAllByCategoryId(int categoryId, int limit) throws DaoException {
+		List<Item> items = new ArrayList<>(limit);
+		try {
+			preStatement = connection.prepareStatement(SELECT_ALL_ITEMS_BY_CATEGORY_ID_WITH_LIMIT);
+			preStatement.setInt(1, categoryId);
+			preStatement.setInt(2, limit);
+			resultSet = preStatement.executeQuery();
+			while (resultSet.next()) {
+				Item item = Item.newBuilder().setId(resultSet.getLong(1))
+						.setName(resultSet.getString(2))
+						.setDescription(resultSet.getString(3))
+						.setPrice(resultSet.getInt(4))
+						.setCategoryId(categoryId)
+						.build();
+				items.add(item);
+			}
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
+		}
+		
+		return items;
+	}
+	
+	public List<Item> findAllByCategoryId(int categoryId, int limit, long offset) throws DaoException {
+		List<Item> items = new ArrayList<>(limit);
+		try {
+			preStatement = connection.prepareStatement(SELECT_ALL_ITEMS_BY_CATEGORY_ID_WITH_LIMIT_BEGIN_OFFSET);
+			preStatement.setInt(1, categoryId);
+			preStatement.setInt(2, limit);
+			preStatement.setLong(3, offset);
+			resultSet = preStatement.executeQuery();
+			while (resultSet.next()) {
+				Item item = Item.newBuilder().setId(resultSet.getLong(1))
+						.setName(resultSet.getString(2))
+						.setDescription(resultSet.getString(3))
+						.setPrice(resultSet.getInt(4))
+						.setCategoryId(categoryId)
+						.build();
+				items.add(item);
+			}
+		} catch (SQLException e) {
+			throw new DaoException(e.getMessage(), e.getCause());
+		} finally {
+			closeResultSet(resultSet, logger);
+			closeStatement(preStatement, logger);
+			closeConnection(connection, logger);
+		}
 		return items;
 	}
 	

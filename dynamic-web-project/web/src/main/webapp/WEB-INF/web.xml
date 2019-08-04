@@ -5,79 +5,95 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
 	id="WebApp_ID" version="3.0">
+	<filter>
+		<description>
+		</description>
+		<display-name>XSSFilter</display-name>
+		<filter-name>XSSFilter</filter-name>
+		<filter-class>kz.zhanbolat.web.presentation.filter.XSSFilter</filter-class>
+	</filter>
+	<filter>
+		<display-name>LocaleFilter</display-name>
+		<filter-name>LocaleFilter</filter-name>
+		<filter-class>kz.zhanbolat.web.presentation.filter.LocaleFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>XSSFilter</filter-name>
+		<url-pattern>/XSSFilter</url-pattern>
+	</filter-mapping>
 	<servlet>
 		<servlet-name>LoginController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.LoginController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.LoginController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>MainController</display-name>
 		<servlet-name>MainController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.MainController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.MainController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>ErrorController</display-name>
 		<servlet-name>ErrorController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.ErrorController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.ErrorController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>RegistrationController</display-name>
 		<servlet-name>RegistrationController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.RegistrationController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.RegistrationController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>CatalogController</display-name>
 		<servlet-name>CatalogController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.CatalogController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.CatalogController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>ProfileController</display-name>
 		<servlet-name>ProfileController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.ProfileController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.ProfileController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>AdvertConroller</display-name>
 		<servlet-name>AdvertConroller</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.AdvertConroller</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.AdvertConroller</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>EditController</display-name>
 		<servlet-name>EditController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.EditController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.EditController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>LogoutController</display-name>
 		<servlet-name>LogoutController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.LogoutController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.LogoutController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>ManageController</display-name>
 		<servlet-name>ManageController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.ManageController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.ManageController</servlet-class>
 	</servlet>
 	<servlet>
 		<description>
 		</description>
 		<display-name>DeleteController</display-name>
 		<servlet-name>DeleteController</servlet-name>
-		<servlet-class>kz.zhanbolat.web.presintation.controller.DeleteController</servlet-class>
+		<servlet-class>kz.zhanbolat.web.presentation.controller.DeleteController</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>LoginController</servlet-name>

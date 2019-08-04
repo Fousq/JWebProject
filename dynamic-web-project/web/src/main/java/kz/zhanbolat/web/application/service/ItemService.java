@@ -26,6 +26,30 @@ public class ItemService {
 		itemDao = new ItemDao();
 	}
 	
+	public List<Item> obtainItems(int limit) {
+		connection = ConnectionPool.INSTANCE.getConnection();
+		itemDao.setConnection(connection);
+		List<Item> items = null;
+		try {
+			items = ((ItemDao)itemDao).findAll(limit);
+		} catch (DaoException e) {
+			logger.error("ERROR on obtaining the items.", e);
+		}
+		return items;
+	}
+	
+	public List<Item> obtainItems(int limit, long offset) {
+		connection = ConnectionPool.INSTANCE.getConnection();
+		itemDao.setConnection(connection);
+		List<Item> items = null;
+		try {
+			items = ((ItemDao)itemDao).findAll(limit, offset);
+		} catch (DaoException e) {
+			logger.error("ERROR on obtaining the items.", e);
+		}
+		return items;
+	}
+	
 	public boolean createNewItem(long userId, Item item) {
 		EntityTransaction transaction = new EntityTransaction();
 		AbstractDao<Long, Record> recordDao = new RecordDao();
@@ -79,6 +103,45 @@ public class ItemService {
 			transaction.end();
 		}
 		return isDeleted;
+	}
+	
+	public List<Item> obtainItemsByCategoryId(int categoryId) {
+		List<Item> items = null;
+		connection = ConnectionPool.INSTANCE.getConnection();
+		itemDao.setConnection(connection);
+		try {
+			items = ((ItemDao) itemDao).findAllByCategoryId(categoryId);
+		} catch (DaoException e) {
+			logger.error("ERROR on finding all items by category id", e);
+		}
+		
+		return items;
+	}
+	
+	public List<Item> obtainItemsByCategoryId(int categoryId, int limit) {
+		List<Item> items = null;
+		connection = ConnectionPool.INSTANCE.getConnection();
+		itemDao.setConnection(connection);
+		try {
+			items = ((ItemDao) itemDao).findAllByCategoryId(categoryId, limit);
+		} catch (DaoException e) {
+			logger.error("ERROR on finding all items by category id", e);
+		}
+		
+		return items;
+	}
+	
+	public List<Item> obtainItemsByCategoryId(int categoryId, int limit, long offset) {
+		List<Item> items = null;
+		connection = ConnectionPool.INSTANCE.getConnection();
+		itemDao.setConnection(connection);
+		try {
+			items = ((ItemDao) itemDao).findAllByCategoryId(categoryId, limit, offset);
+		} catch (DaoException e) {
+			logger.error("ERROR on finding all items by category id", e);
+		}
+		
+		return items;
 	}
 	
 }

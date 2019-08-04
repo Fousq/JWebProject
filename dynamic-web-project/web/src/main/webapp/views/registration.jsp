@@ -20,7 +20,6 @@
 	</ul>
 	<br>
 	<form action="registration" method="post">
-		<input type="hidden" name="action" value="registr"/>
 		<label for="login"><fmt:message key="label.context.login" />:</label>
 		<input type="text" name="login" id="login" required /><br>
 		<label for="password"><fmt:message key="label.context.password" />:</label>
@@ -285,17 +284,7 @@
 		<fmt:message key="label.text.registration" var="registrSubmit"></fmt:message>
 		<input type="submit" value="${registrSubmit}" />
 	</form>
-	<script type="text/javascript">
-		const showOrHidePassword = () => {
-			const password = document.getElementById('password');
-			if (password.type === 'password') {
-				password.type = 'text';
-			} else {
-				password.type = 'password';
-			}
-		};
-		const togglePassword = document.getElementById('togglePassword');
-		togglePassword.addEventListener("change", showOrHidePassword);
-	</script>
+	<script type="text/javascript" src="../static/refreshSecurity.js"></script>
+	<script type="text/javascript" src="../static/toggle.js"></script>
 </body>
 </html>
