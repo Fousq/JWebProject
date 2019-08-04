@@ -84,7 +84,9 @@ public class CatalogController extends HttpServlet {
 		int pageId = Integer.parseInt(request.getParameter("page"));
 		if (categoryId != 0) {
 			int prevPageId = (int) request.getSession().getAttribute("prevPage");
-			if (pageId < prevPageId && pageId % 2 == 0) {
+			logger.debug("prevPageId: " + prevPageId);
+			logger.debug("pageId: " + pageId);
+			if (pageId < prevPageId) {
 				itemOffset = (long) request.getSession().getAttribute("prevItemOffset");
 				recordOffset = (long) request.getSession().getAttribute("prevRecordOffset");
 			}
@@ -92,11 +94,9 @@ public class CatalogController extends HttpServlet {
 			logger.debug("recordOffset: " + recordOffset);
 			items = itemList(request, categoryId, pageId);
 			records = recordList(request, categoryId, pageId);
-			if (items != null && records != null) {
-				items = (List<Item>) pageService.convertToPageFormat(2 - (pageId % 2), items);
-				records = (List<Record>) pageService.convertToPageFormat(2 - (pageId % 2), records);
-				next = checkNext(items) == checkNext(records);
-			}
+			items = (List<Item>) pageService.convertToPageFormat(2 - (pageId % 2), items);
+			records = (List<Record>) pageService.convertToPageFormat(2 - (pageId % 2), records);
+			next = checkNext(items) && checkNext(records);
 			previous = checkPrevious(pageId);
 		}
 		request.setAttribute("items", items);
@@ -152,6 +152,7 @@ public class CatalogController extends HttpServlet {
 	
 	private boolean checkNext(List<? extends Entity> entities) {
 		boolean next;
+		logger.debug(entities.size());
 		if (entities.size() < PageService.DEFAULT_PAGE_SIZE) {
 			next = false;
 		} else {
