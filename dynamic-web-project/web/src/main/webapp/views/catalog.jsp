@@ -20,7 +20,7 @@
 	<br>
 	<form action="catalog" method="post">
 		<select name="category">
-			<option value="0">--Choose category--</option>
+			<option value="0"><fmt:message key="label.context.chooseCategory" /></option>
 			<c:forEach var="category" items="${categories}">
 				<c:choose>
 					<c:when test="${category.getId() == selected}">
@@ -32,6 +32,7 @@
 				</c:choose>
 			</c:forEach>
 		</select>
+		<fmt:message var="searchSubmit" key="label.text.search" />
 		<input type="submit" value="search"/>
 	</form>
 	<c:if test="${not empty param.selected and param.selected != 0 }">
@@ -40,10 +41,10 @@
 				<c:forEach var="i" begin="0" end="${records.size() - 1 }">
 				<c:set var="record" value="${records.get(i) }" />
 				<c:set var="item" value="${items.get(i) }"/>
-				<a href="${item.id}"><c:out value="${item.name}"/></a>
+				<a href="#"><c:out value="${item.name}"/></a>
 				<span><c:out value="${record.createdAt}"/></span>
 				<span><c:out value="${item.price }"/></span>
-				<span><c:out value="${item.description}"/></span>
+				<span><c:out value="${item.description}"/></span><br>
 			</c:forEach>
 			<c:choose>
 			<c:when test="${previous}">
@@ -63,7 +64,7 @@
 				</c:choose>
 			</c:when>
 			<c:otherwise>
-				<span>NO ITEM</span>
+				<span><fmt:message key="label.context.empty" /></span>
 			</c:otherwise>
 		</c:choose>
 	</c:if>

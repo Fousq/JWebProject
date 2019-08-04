@@ -22,7 +22,7 @@
 		<c:when test="${not empty sessionScope.id}">
 			<a href="profile"><fmt:message key="label.text.profile" /></a>
 			<a href="logout"><fmt:message key="label.text.logout"/></a>
-			<a href="catalog?page=1">Catalog</a>
+			<a href="catalog?page=1"><fmt:message key="label.text.catalog" /></a>
 		</c:when>
 		<c:otherwise>
 			<a href="login"><fmt:message key="label.text.login" /></a>
