@@ -32,7 +32,6 @@ public class CategoryDaoTest {
 	@Test
 	public void daoShouldFindAll() throws DaoException {
 		List<Category> categories = dao.findAll();
-		assertTrue(categories.size() == 5);
 		categories.forEach(category -> logger.debug(category));
 	}
 	

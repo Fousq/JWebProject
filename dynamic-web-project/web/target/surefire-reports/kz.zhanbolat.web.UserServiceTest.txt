@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: kz.zhanbolat.web.UserServiceTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 2, Time elapsed: 0 s - in kz.zhanbolat.web.UserServiceTest

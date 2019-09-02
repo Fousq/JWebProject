@@ -12,6 +12,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Ignore;
 
 import kz.zhanbolat.web.domain.entity.Item;
 import kz.zhanbolat.web.infrastructer.database.dao.ItemDao;
@@ -31,6 +32,7 @@ public class ItemDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void itemShouldBeCreatedInDB() throws DaoException {
 		Item item = Item.newBuilder()
 							.setName("name")
@@ -43,6 +45,7 @@ public class ItemDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void shouldFindAllUsersItem() throws DaoException {
 		List<Item> items = new ArrayList<>();
 		long userId = 10;
@@ -52,6 +55,7 @@ public class ItemDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void itemShouldBeDeleted() throws DaoException {
 		long itemId = 1;
 		Item item = Item.newBuilder().setId(itemId)

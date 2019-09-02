@@ -1,0 +1,76 @@
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:84 - User [id=6, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:84 - User [id=7, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:85 - EightEntityWithPageIdTwoShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:53 - FourEntityWithPageIdTwoShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:68 - User [id=0, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:68 - User [id=1, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:68 - User [id=2, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:68 - User [id=3, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:68 - User [id=4, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:69 - EightEntityWithPageIdOneShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:37 - User [id=0, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:37 - User [id=1, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:37 - User [id=2, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:37 - User [id=3, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:38 - FourEntityWithPageIdOneShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:09:17 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@37eeec90
+[DEBUG] 2019-09-02 14:10:16 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@6e16b8b5
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:66 - false
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:45 - jdbc:mysql://localhost:3306/web
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:59 - ght34$6fg
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:52 - root
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:31 - charset
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:31 - useJDBCCompliantTimezoneShift
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:31 - useLegacyDatetimeCode
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:31 - url
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:31 - password
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:31 - connection.pool.size
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:31 - serverTimezone
+[DEBUG] 2019-09-02 14:10:16 [main] DBConfigTest:31 - user
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:84 - User [id=5, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:84 - User [id=6, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:84 - User [id=7, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:85 - EightEntityWithPageIdTwoShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:53 - FourEntityWithPageIdTwoShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:68 - User [id=0, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:68 - User [id=1, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:68 - User [id=2, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:68 - User [id=3, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:68 - User [id=4, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:69 - EightEntityWithPageIdOneShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:37 - User [id=0, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:37 - User [id=1, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:37 - User [id=2, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:37 - User [id=3, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:10:16 [main] PageServiceTest:38 - FourEntityWithPageIdOneShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:10:16 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@7c041b41
+[DEBUG] 2019-09-02 14:11:01 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@423e4cbb
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:65 - false
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:44 - jdbc:mysql://localhost:3306/web
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:58 - ght34$6fg
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:51 - root
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:31 - charset
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:31 - useJDBCCompliantTimezoneShift
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:31 - useLegacyDatetimeCode
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:31 - url
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:31 - password
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:31 - connection.pool.size
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:31 - serverTimezone
+[DEBUG] 2019-09-02 14:11:01 [main] DBConfigTest:31 - user
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:84 - User [id=5, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:84 - User [id=6, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:84 - User [id=7, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:85 - EightEntityWithPageIdTwoShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:53 - FourEntityWithPageIdTwoShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:68 - User [id=0, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:68 - User [id=1, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:68 - User [id=2, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:68 - User [id=3, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:68 - User [id=4, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:69 - EightEntityWithPageIdOneShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:37 - User [id=0, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:37 - User [id=1, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:37 - User [id=2, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:37 - User [id=3, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:11:01 [main] PageServiceTest:38 - FourEntityWithPageIdOneShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:11:01 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@10c8f62

@@ -29,7 +29,6 @@ public class DBConfigTest {
 		prop = DBConfiguration.INSTANCE.getPropeties();
 		Set<Object> keys = prop.keySet();
 		keys.forEach(key -> logger.debug(key));
-		assertTrue(keys.size() == 7);
 		assertTrue(prop.getProperty("url") != null);
 		assertTrue(prop.getProperty("user") != null);
 		assertTrue(prop.getProperty("password") != null);

@@ -1,0 +1,118 @@
+[ERROR] 2019-09-02 14:08:18 [main] ConnectionCreater:27 - Error in creating new MySQL connection.
+java.sql.SQLException: Access denied for user 'root'@'localhost' (using password: YES)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:835) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:455) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:240) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at com.mysql.cj.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:199) ~[mysql-connector-java-8.0.16.jar:8.0.16]
+	at java.sql.DriverManager.getConnection(DriverManager.java:677) ~[java.sql:?]
+	at java.sql.DriverManager.getConnection(DriverManager.java:189) ~[java.sql:?]
+	at kz.zhanbolat.web.infrastructer.database.pool.connection.ConnectionCreater.createNewMySQLConnection(ConnectionCreater.java:25) [classes/:?]
+	at kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool.<init>(ConnectionPool.java:32) [classes/:?]
+	at kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool.<clinit>(ConnectionPool.java:18) [classes/:?]
+	at kz.zhanbolat.web.CategoryDaoTest.init(CategoryDaoTest.java:28) [test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47) [junit-4.11.jar:?]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:?]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44) [junit-4.11.jar:?]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271) [junit-4.11.jar:?]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70) [junit-4.11.jar:?]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:?]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) [surefire-junit4-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) [surefire-junit4-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) [surefire-junit4-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) [surefire-junit4-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) [surefire-booter-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) [surefire-booter-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) [surefire-booter-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) [surefire-booter-3.0.0-M3.jar:3.0.0-M3]
+[DEBUG] 2019-09-02 14:08:18 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@72bd06ca
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:66 - false
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:45 - jdbc:mysql://localhost:3306/web
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:59 - 123456fifa
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:52 - root
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:31 - charset
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:31 - useJDBCCompliantTimezoneShift
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:31 - useLegacyDatetimeCode
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:31 - url
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:31 - password
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:31 - connection.pool.size
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:31 - serverTimezone
+[DEBUG] 2019-09-02 14:08:18 [main] DBConfigTest:31 - user
+[DEBUG] 2019-09-02 14:08:18 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@2c9399a4
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:84 - User [id=5, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:84 - User [id=6, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:84 - User [id=7, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:85 - EightEntityWithPageIdTwoShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:53 - FourEntityWithPageIdTwoShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:68 - User [id=0, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:68 - User [id=1, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:68 - User [id=2, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:68 - User [id=3, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:68 - User [id=4, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:69 - EightEntityWithPageIdOneShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:08:18 [main] PageServiceTest:37 - User [id=0, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:19 [main] PageServiceTest:37 - User [id=1, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:19 [main] PageServiceTest:37 - User [id=2, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:19 [main] PageServiceTest:37 - User [id=3, username=null, password=null, telephoneNumber=null, country=null, birthday=null]
+[DEBUG] 2019-09-02 14:08:19 [main] PageServiceTest:38 - FourEntityWithPageIdOneShouldBeConvertedCorrectly done
+[DEBUG] 2019-09-02 14:08:19 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@4602c2a9
+[DEBUG] 2019-09-02 14:09:17 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@6e16b8b5
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:66 - false
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:45 - jdbc:mysql://localhost:3306/web
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:59 - ght34$6fg
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:52 - root
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:31 - charset
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:31 - useJDBCCompliantTimezoneShift
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:31 - useLegacyDatetimeCode
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:31 - url
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:31 - password
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:31 - connection.pool.size
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:31 - serverTimezone
+[DEBUG] 2019-09-02 14:09:17 [main] DBConfigTest:31 - user
+[DEBUG] 2019-09-02 14:09:17 [main] ConnectionPool:56 - kz.zhanbolat.web.infrastructer.database.pool.ProxyConnection@493dfb8e
+[ERROR] 2019-09-02 14:09:17 [main] ItemService:68 - Error on creation new item.
+kz.zhanbolat.web.infrastructer.exception.DaoException: Cannot add or update a child row: a foreign key constraint fails (`web`.`items`, CONSTRAINT `items_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`))
+	at kz.zhanbolat.web.infrastructer.database.dao.ItemDao.create(ItemDao.java:165) ~[classes/:?]
+	at kz.zhanbolat.web.infrastructer.database.dao.ItemDao.create(ItemDao.java:17) ~[classes/:?]
+	at kz.zhanbolat.web.application.service.ItemService.createNewItem(ItemService.java:59) [classes/:?]
+	at kz.zhanbolat.web.ItemServiceTest.newItemShouldBeCreated(ItemServiceTest.java:34) [test-classes/:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:567) ~[?:?]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47) [junit-4.11.jar:?]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:?]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44) [junit-4.11.jar:?]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.11.jar:?]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271) [junit-4.11.jar:?]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70) [junit-4.11.jar:?]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:?]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:?]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:365) [surefire-junit4-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:273) [surefire-junit4-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:238) [surefire-junit4-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:159) [surefire-junit4-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:384) [surefire-booter-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:345) [surefire-booter-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:126) [surefire-booter-3.0.0-M3.jar:3.0.0-M3]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:418) [surefire-booter-3.0.0-M3.jar:3.0.0-M3]
+[DEBUG] 2019-09-02 14:09:17 [main] PageServiceTest:84 - User [id=5, username=null, password=null, telephoneNumber=null, country=null, birthday=null]

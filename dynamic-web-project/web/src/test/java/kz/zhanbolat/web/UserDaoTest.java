@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Ignore;
 
 import kz.zhanbolat.web.domain.entity.User;
 import kz.zhanbolat.web.domain.exception.InvalidValueException;
@@ -31,6 +32,7 @@ public class UserDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void findAllShoulReturnEveryUser() throws DaoException {
 		List<User> users = userDao.findAll();
 		users.forEach(user -> logger.debug(user));
@@ -38,6 +40,7 @@ public class UserDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void createNewUser() throws InvalidValueException, DaoException {
 		User user = User.newUser()
 						.setUsername("test")

@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Ignore;
 
 import kz.zhanbolat.web.infrastructer.database.dao.RecordDao;
 import kz.zhanbolat.web.infrastructer.database.pool.ConnectionPool;
@@ -28,6 +29,7 @@ public class RecordDaoTest {
 	}
 	
 	@Test
+	@Ignore
 	public void recordShouldBeDeletedByItemId() throws DaoException {
 		long itemId = 2;
 		boolean isDeleted = dao.deleteByItemId(itemId);

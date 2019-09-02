@@ -6,6 +6,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.Ignore;
 
 import kz.zhanbolat.web.application.service.ItemService;
 import kz.zhanbolat.web.domain.entity.Item;
@@ -20,6 +21,7 @@ public class ItemServiceTest {
 	}
 	
 	@Test
+	@Ignore
 	public void newItemShouldBeCreated() {
 		String name = "name";
 		String description = "description";

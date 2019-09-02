@@ -93,8 +93,8 @@ public class ItemService {
 		AbstractDao<Long, Record> recordDao = new RecordDao();
 		transaction.begin(itemDao, recordDao);
 		try {
-			itemDao.delete(item);
 			((RecordDao) recordDao).deleteByItemId(item.getId());
+			itemDao.delete(item);
 			transaction.commit();
 		} catch (DaoException e) {
 			logger.error("ERROR on deleting the item.", e);
