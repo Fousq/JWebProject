@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: kz.zhanbolat.web.ItemDaoTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.002 s - in kz.zhanbolat.web.ItemDaoTest
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 3, Time elapsed: 0.008 s - in kz.zhanbolat.web.ItemDaoTest

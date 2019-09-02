@@ -51,6 +51,11 @@
     	<artifactId>esapi</artifactId>
     	<version>2.2.0.0</version>
 	</dependency>
+	  <dependency>
+		  <groupId>javax.servlet.jsp.jstl</groupId>
+		  <artifactId>jstl-api</artifactId>
+		  <version>1.2</version>
+	  </dependency>
   </dependencies>
   
   <build>
@@ -68,9 +73,38 @@
 		</plugin>
 		<plugin>
 			<groupId>org.apache.tomcat.maven</groupId>
-			<artifactId>tomcat8-maven-plugin</artifactId>
+			<artifactId>tomcat7-maven-plugin</artifactId>
 			<version>2.2</version>
+			<configuration>
+				<url>http://localhost:8086/manager/text</url>
+				<server>TomcatServer</server>
+				<path>/myapp</path>
+			</configuration>
 		</plugin>
-    </plugins>
+		<plugin>
+			<groupId>org.codehaus.cargo</groupId>
+			<artifactId>cargo-maven2-plugin</artifactId>
+			<version>1.7.7</version>
+			<configuration>
+				<container>
+					<containerId>tomcat8x</containerId>
+					<type>installed</type>
+					<home>C:\Program Files\Apache Software Foundation\Tomcat 8.5</home>
+				</container>
+				<configuration>
+					<type>existing</type>
+					<home>C:\Program Files\Apache Software Foundation\Tomcat 8.5</home>
+				</configuration>
+			</configuration>
+		</plugin>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<configuration>
+				<source>9</source>
+				<target>9</target>
+			</configuration>
+		</plugin>
+	</plugins>
   </build>
 </project>

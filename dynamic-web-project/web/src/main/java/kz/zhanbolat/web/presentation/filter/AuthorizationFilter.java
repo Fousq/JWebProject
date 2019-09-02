@@ -2,17 +2,19 @@ package kz.zhanbolat.web.presentation.filter;
 
 import java.io.IOException;
 
-import javax.servlet.Filter;
-import javax.servlet.FilterChain;
-import javax.servlet.ServletException;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
+import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebFilter(urlPatterns= {"/profile", "/advert", "/delete", "/manage", "/edit"})
 public class AuthorizationFilter implements Filter {
+	private FilterConfig config;
+
+	@Override
+	public void init(FilterConfig filterConfig) throws ServletException {
+		config = filterConfig;
+	}
 
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
@@ -25,5 +27,9 @@ public class AuthorizationFilter implements Filter {
 		}
 		chain.doFilter(request, response);
 	}
-	
+
+	@Override
+	public void destroy() {
+
+	}
 }

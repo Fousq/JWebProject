@@ -1,7 +1,6 @@
 package kz.zhanbolat.web.application.service;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.util.List;
 
 import org.apache.logging.log4j.LogManager;

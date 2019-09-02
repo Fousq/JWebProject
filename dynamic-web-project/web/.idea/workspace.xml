@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ce837d24-7db5-4aad-b9ef-2fee8d00b476" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_protobuf_protobuf_java_3_6_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_io7m_xom_xom_1_2_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_beanutils_commons_beanutils_1_9_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_12.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_configuration_commons_configuration_1_10.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_fileupload_commons_fileupload_1_3_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jsp_api_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_jsp_jstl_jstl_api_1_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__net_sourceforge_nekohtml_nekohtml_1_9_22.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_extras_beanshell_bsh_2_0b6.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_11_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_core_2_11_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlgraphics_batik_constants_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlgraphics_batik_css_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlgraphics_batik_i18n_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlgraphics_batik_util_1_11.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_xmlgraphics_xmlgraphics_commons_2_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_owasp_antisamy_antisamy_1_5_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_owasp_esapi_esapi_2_2_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_serializer_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xalan_xalan_2_7_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xerces_xercesImpl_2_12_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_1_4_01.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__xml_apis_xml_apis_ext_1_3_04.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web.war" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/ESAPI.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/database.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/application/service/CategoryService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/application/service/ItemService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/application/service/PageService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/application/service/RecordService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/application/service/UserService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/application/service/transaction/EntityTransaction.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/Category.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/Entity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/Item$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/Item$Builder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/Item.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/Record$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/Record$Builder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/Record.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/User$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/User$Builder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/entity/User.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/exception/InvalidValueException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/domain/validator/UserValidator.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/config/DBConfiguration.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/database/dao/AbstractDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/database/dao/CategoryDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/database/dao/ItemDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/database/dao/RecordDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/database/dao/UserDao.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/database/pool/ConnectionPool.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/database/pool/ProxyConnection.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/database/pool/connection/ConnectionCreater.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/exception/ConfigurationException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/exception/ConnectionPoolException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/infrastructer/exception/DaoException.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/AdvertController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/CatalogController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/DeleteController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/EditController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/ErrorController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/LoginController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/LogoutController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/ManageController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/ProfileController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/controller/RegistrationController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/filter/AuthorizationFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/filter/LocaleFilter$SupportedLanguages.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/filter/LocaleFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/filter/XSSFilter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/kz/zhanbolat/web/presentation/filter/wrapper/XSSRequestWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/log4j2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/messages_en.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/classes/messages_ru.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/antisamy-1.5.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/batik-constants-1.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/batik-css-1.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/batik-i18n-1.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/batik-util-1.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/bsh-2.0b6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-beanutils-1.9.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-codec-1.12.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-collections-3.2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-collections4-4.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-configuration-1.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-fileupload-1.3.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-io-2.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-lang-2.6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/esapi-2.2.0.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/httpclient-4.5.8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/httpcore-4.4.11.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/jsp-api-2.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/jstl-api-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/log4j-1.2.17.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/log4j-api-2.11.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/log4j-core-2.11.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/mysql-connector-java-8.0.16.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/nekohtml-1.9.22.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/protobuf-java-3.6.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/serializer-2.7.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/servlet-api-2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/slf4j-api-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/taglibs-standard-compat-1.2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/taglibs-standard-impl-1.2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/taglibs-standard-jstlel-1.2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/taglibs-standard-spec-1.2.5.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/xalan-2.7.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/xercesImpl-2.12.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/xml-apis-1.4.01.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/xml-apis-ext-1.3.04.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/xmlgraphics-commons-2.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/lib/xom-1.2.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/WEB-INF/web.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/static/refreshSecurity.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/static/toggle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/views/advert.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/views/catalog.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/views/edit.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/views/error.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/views/login.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/views/manage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/views/profile.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/web/views/registration.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logs/logging(2019-09-02).log" beforeDir="false" afterPath="$PROJECT_DIR$/../logs/logging(2019-09-02).log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../logs/logging.log" beforeDir="false" afterPath="$PROJECT_DIR$/../logs/logging.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/zhanbolat/web/application/service/CategoryService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/zhanbolat/web/application/service/CategoryService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/zhanbolat/web/presentation/filter/AuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/zhanbolat/web/presentation/filter/AuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/zhanbolat/web/presentation/filter/LocaleFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/zhanbolat/web/presentation/filter/LocaleFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/kz/zhanbolat/web/presentation/filter/XSSFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/kz/zhanbolat/web/presentation/filter/XSSFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/CategoryService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/CategoryService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/ItemService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/ItemService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/PageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/PageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/RecordService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/RecordService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/transaction/EntityTransaction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/application/service/transaction/EntityTransaction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Category.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Category.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Entity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Item$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Item$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Item$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Item$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Record$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Record$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Record$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Record$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Record.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/Record.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/User$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/User$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/User$Builder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/User$Builder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/entity/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/exception/InvalidValueException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/exception/InvalidValueException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/validator/UserValidator.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/domain/validator/UserValidator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/config/DBConfiguration.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/config/DBConfiguration.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/AbstractDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/AbstractDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/CategoryDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/CategoryDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/ItemDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/ItemDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/RecordDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/RecordDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/UserDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/dao/UserDao.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/pool/ConnectionPool.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/pool/ConnectionPool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/pool/ProxyConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/pool/ProxyConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/pool/connection/ConnectionCreater.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/database/pool/connection/ConnectionCreater.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/exception/ConfigurationException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/exception/ConfigurationException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/exception/ConnectionPoolException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/exception/ConnectionPoolException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/exception/DaoException.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/infrastructer/exception/DaoException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/AdvertController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/AdvertController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/CatalogController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/CatalogController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/DeleteController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/DeleteController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/EditController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/EditController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/ErrorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/ErrorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/LogoutController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/LogoutController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/ManageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/ManageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/ProfileController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/ProfileController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/RegistrationController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/controller/RegistrationController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/AuthorizationFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/AuthorizationFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/LocaleFilter$SupportedLanguages.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/LocaleFilter$SupportedLanguages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/LocaleFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/LocaleFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/XSSFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/XSSFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/wrapper/XSSRequestWrapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/kz/zhanbolat/web/presentation/filter/wrapper/XSSRequestWrapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.CategoryDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.CategoryDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.DBConfigTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.DBConfigTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.ItemDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.ItemDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.ItemServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.ItemServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.PageServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.PageServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.RecordDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.RecordDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.UserDaoTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.UserDaoTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.UserServiceTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.UserServiceTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.UserValidatorTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-kz.zhanbolat.web.UserValidatorTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.CategoryDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.CategoryDaoTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.ItemDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.ItemDaoTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.PageServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.PageServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.UserDaoTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.UserDaoTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.UserServiceTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/kz.zhanbolat.web.UserServiceTest.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/CategoryDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/CategoryDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/DBConfigTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/DBConfigTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/ItemDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/ItemDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/ItemServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/ItemServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/PageServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/PageServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/RecordDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/RecordDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/UserDaoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/UserDaoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/UserServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/UserValidatorTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/kz/zhanbolat/web/UserValidatorTest.class" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1QHHxOr1q2eARePBQfG2km38cXz" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ce837d24-7db5-4aad-b9ef-2fee8d00b476" name="Default Changelist" comment="" />
+      <created>1567420850291</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1567420850291</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
