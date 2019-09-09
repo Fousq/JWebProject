@@ -11,6 +11,7 @@
 	<properties>
 		<maven.compiler.target>1.8</maven.compiler.target>
 		<maven.compiler.source>1.8</maven.compiler.source>
+		<tomcat.home>C:\Program Files\Apache Software Foundation\Tomcat 8.5</tomcat.home>
 	</properties>
 
   <dependencies>
@@ -89,11 +90,11 @@
 				<container>
 					<containerId>tomcat8x</containerId>
 					<type>installed</type>
-					<home>C:\Program Files\Apache Software Foundation\Tomcat 8.5</home>
+					<home>${tomcat.home}</home>
 				</container>
 				<configuration>
 					<type>existing</type>
-					<home>C:\Program Files\Apache Software Foundation\Tomcat 8.5</home>
+					<home>${tomcat.home}</home>
 				</configuration>
 			</configuration>
 		</plugin>
